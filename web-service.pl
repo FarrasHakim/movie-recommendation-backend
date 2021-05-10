@@ -18,6 +18,8 @@ http:location(food, '/food', []).
 :- http_handler(food(tacos), say_taco, []).
 :- http_handler(food(kebabs), say_kebab, []).
 :- http_handler('/add', handle_request, []).
+:- http_handler('/movies', get_Data, []).
+:- http_handler('/test-json', handle_json_request, []).
 
 % The predicate server(?Port) starts the server. It simply creates a
 % number of Prolog threads and then returns to the toplevel, so you can
@@ -46,20 +48,31 @@ say_kebab(_Request) :-
         format('Kebabs are quote and quote healthy!~n').
 
 handle_request(Request) :-
-%format(user_output,"I'm here~n",[]),
-%http_read_json(Request, DictIn,[json_object(term)]),
-%format(user_output,"Request is: ~p~n",[Request]),
-%format(user_output,"DictIn is: ~p~n",[DictIn]),
-%DictOut=DictIn,
-%reply_json(DictOut).
-http_read_json_dict(Request, Query),
-solve(Query, Solution),
-reply_json_dict(Solution).
+        http_read_json_dict(Request, Query),
+        solve(Query, Solution),
+        reply_json_dict(Solution).
+
+handle_json_request(Request) :-
+   format(user_output,"I'm here~n",[]),
+   http_read_json(Request, DictIn,[json_object(term)]),
+   format(user_output,"Request is: ~p~n",[Request]),
+   format(user_output,"DictIn is: ~p~n",[DictIn]),
+   DictOut=DictIn,
+   reply_json(DictOut).
+
+get_Data(Request) :-
+        http_read_json(Request, DictIn,[json_object(term)]),
+        listMovies(DictIn, DictOut),
+        reply_json_dict(_{list:DictOut}).
+
+some_process(_{id:_}, _{movieoutput:List}) :-
+        bagof(Movie, movie(Movie, _), List).
 
 solve(_{a:X, b:Y}, _{answer:N}) :-
     number(X),
     number(Y),
     N is X + Y.
 
-is_movie(X,Y) :- movie(X,Y).
+listMovies(_,List) :-
+        findall(Movie, movie(Movie, _), List).
 

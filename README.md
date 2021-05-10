@@ -8,4 +8,41 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
 4. Jalankan `swipl web-service.pl`
 5. SWI-Prolog akan berjalan di cmd/terminal
 6. Jalankan syntax `server(<port>)`
-7. Website dapat diakses melalui browser dengan alamat url `localhost:<port>`
+7. Website dapat diakses melalui browser dengan alamat url `localhost:<port>` 
+
+#### Contoh request yang dapat dijalankan
+1. "Get" Movies
+   Endpoint-URL: `Post /movies`\
+   Input: **Null**
+
+   Output:
+   ```
+   {
+       "list":[
+           "american_beauty",
+            "anna",
+            "barton_fink",
+            "the_big_lebowski",
+            "blade_runner",
+            "blood_simple",
+            "the_cotton_club"
+       ]
+   }
+   ```
+
+2. Add Number
+   Endpoint-URL: `Post /add`\
+   Input:
+   ```
+   {
+       "a": 12,
+       "b": 13
+   }
+   ```
+
+   Output:
+   ```
+   {
+      "answer": 25
+   }
+   ```
