@@ -12,7 +12,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
 
 #### Contoh request yang dapat dijalankan
 1. "Get" Movies
-   Endpoint-URL: `Post /movies`\
+   Endpoint-URL: `GET /movies`\
    Input: **Null**
 
    Output:
@@ -31,7 +31,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
 
 2. Add Number
-   Endpoint-URL: `Post /add`\
+   Endpoint-URL: `POST /add`\
    Input:
    ```
    {

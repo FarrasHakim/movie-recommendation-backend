@@ -2,6 +2,7 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/http_error)).
 :- use_module(library(http/http_json)).
+:- use_module(library(http/http_header)).
 :- [database].
 
 http:location(files, '/f', []).
@@ -60,9 +61,8 @@ handle_json_request(Request) :-
    DictOut=DictIn,
    reply_json(DictOut).
 
-get_Data(Request) :-
-        http_read_json(Request, DictIn,[json_object(term)]),
-        listMovies(DictIn, DictOut),
+get_Data(_) :-
+        listMovies(DictOut),
         reply_json_dict(_{list:DictOut}).
 
 some_process(_{id:_}, _{movieoutput:List}) :-
@@ -73,6 +73,6 @@ solve(_{a:X, b:Y}, _{answer:N}) :-
     number(Y),
     N is X + Y.
 
-listMovies(_,List) :-
+listMovies(List) :-
         findall(Movie, movie(Movie, _), List).
 
