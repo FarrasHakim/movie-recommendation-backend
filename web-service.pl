@@ -2,6 +2,7 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/http_error)).
 :- use_module(library(http/http_json)).
+:- use_module(library(http/json)).
 :- use_module(library(http/http_header)).
 :- [database].
 
@@ -22,6 +23,7 @@ http:location(food, '/food', []).
 :- http_handler('/movies/', get_Data, []).
 :- http_handler('/test-json/', handle_json_request, []).
 :- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
+:- http_handler('/movies/by-name/', get_movie_by_name, []).
 % TODO// recommended movie
 % TODO// weekly movie
 % TODO// filter
@@ -40,6 +42,10 @@ by the document content, The only obligatory header line is the
 Content-type: <mime-type> header.
 Printing can be done using any Prolog printing predicate, but the
 format-family is the most useful. See format/2.   */
+
+/*
+Handlers
+*/
 
 say_hi(_Request) :-
         format('Content-type: text/plain~n~n'),
@@ -68,24 +74,45 @@ handle_json_request(Request) :-
 
 get_movie_by_year(Request) :- 
         http_read_json_dict(Request, Query),
+   format(user_output,"Request is: ~p~n",[Request]),
+   format(user_output,"Query is: ~p~n",[Query]),
         movieByYear(Query, DictOut),
+   format(user_output,"DictOut is: ~p~n",[DictOut]),
         reply_json(_{list:DictOut}).
+
+/*
+Handlers Method
+*/
 
 get_Data(_) :-
         listMovies(DictOut),
         reply_json_dict(_{list:DictOut}).
 
-some_process(_{id:_}, _{movieoutput:List}) :-
-        bagof(Movie, movie(Movie, _), List).
+get_movie_by_name(Request) :- 
+        http_read_json_dict(Request, Query),
+        format(user_output,"Query is: ~p~n",[Query]),
+        movieByName(Query, DictOut),
+        reply_json(DictOut).
 
-solve(_{a:X, b:Y}, _{answer:N}) :-
+solve(_{a:X, b:Y}, Dict) :-
     number(X),
     number(Y),
-    N is X + Y.
+    N is X + Y,
+    Dict = _{sum: N}.
 
 listMovies(List) :-
         findall(Movie, movie(Movie, _), List).
 
 movieByYear(_{year:Year}, List) :- 
         findall(Movie, movie(Movie, Year), List).
+
+movieByName(_{name:Name}, _{moviename: Name, year:OutputYear, actors: ActorsList}) :-
+        format(user_output,"ActorInput is: ~p~n",[Name]),
+        json:to_atom(Name, NameAtom),
+        getActors(NameAtom, List),
+        bagof(Year, movie(NameAtom, Year), [OutputYear| _]),
+        ActorsList = List.
+        
+getActors(Movie, List) :-
+        findall(Actor, actor(Movie, Actor, _);actress(Movie, Actor, _), List).
 
