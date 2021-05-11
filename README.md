@@ -46,3 +46,23 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
       "answer": 25
    }
    ```
+3. Get Movies By Year
+   Endpoint-URL: `POST /movies/filter-by-year/`\
+   Input:
+   ```
+   {
+       "year":1999
+   }
+   ```
+   Output:
+   ```
+   {
+    "list": [
+            "american_beauty",
+            "star_wars_episode_i__the_phantom_menace",
+            "torrance_rises",
+            "the_virgin_suicides",
+            "my_brother_the_pig"
+        ]
+    }
+   ```

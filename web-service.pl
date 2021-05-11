@@ -18,9 +18,14 @@ http:location(food, '/food', []).
 % this one can by reached at http://127.0.0.1:8000/taco
 :- http_handler(food(tacos), say_taco, []).
 :- http_handler(food(kebabs), say_kebab, []).
-:- http_handler('/add', handle_request, []).
-:- http_handler('/movies', get_Data, []).
-:- http_handler('/test-json', handle_json_request, []).
+:- http_handler('/add/', handle_request, []).
+:- http_handler('/movies/', get_Data, []).
+:- http_handler('/test-json/', handle_json_request, []).
+:- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
+% TODO// recommended movie
+% TODO// weekly movie
+% TODO// filter
+% TODO// genre
 
 % The predicate server(?Port) starts the server. It simply creates a
 % number of Prolog threads and then returns to the toplevel, so you can
@@ -61,6 +66,11 @@ handle_json_request(Request) :-
    DictOut=DictIn,
    reply_json(DictOut).
 
+get_movie_by_year(Request) :- 
+        http_read_json_dict(Request, Query),
+        movieByYear(Query, DictOut),
+        reply_json(_{list:DictOut}).
+
 get_Data(_) :-
         listMovies(DictOut),
         reply_json_dict(_{list:DictOut}).
@@ -75,4 +85,7 @@ solve(_{a:X, b:Y}, _{answer:N}) :-
 
 listMovies(List) :-
         findall(Movie, movie(Movie, _), List).
+
+movieByYear(_{year:Year}, List) :- 
+        findall(Movie, movie(Movie, Year), List).
 
