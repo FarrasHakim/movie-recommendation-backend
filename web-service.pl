@@ -84,13 +84,17 @@ get_movie_by_year(Request) :-
 Handlers Method
 */
 
-get_Data(_) :-
+get_Data(Request) :-        
+        format(user_output,"Request is: ~p~n",[Request]),
+        http_read_request(Fdln, Request),
+        format(user_output,"Request is: ~p~n",[Fdln]),
         listMovies(DictOut),
         reply_json_dict(_{list:DictOut}).
 
 get_movie_by_name(Request) :- 
         http_read_json_dict(Request, Query),
         format(user_output,"Query is: ~p~n",[Query]),
+        format(user_output,"Query is: ~p~n",[Query.name]),
         movieByName(Query, DictOut),
         reply_json(DictOut).
 

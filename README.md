@@ -66,3 +66,57 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         ]
     }
    ```
+4. Get Movies By Name
+   Endpoint-URL: `POST /movies/by-name/`\
+   Input:
+   ```
+   {
+       "name":"american_beauty"
+   }
+   ```
+   Output:
+   ```
+   {
+    "actors": [
+            "kevin_spacey",
+            "wes_bentley",
+            "chris_cooper",
+            "peter_gallagher",
+            "scott_bakula",
+            "sam_robards",
+            "barry_del_sherman",
+            "john_cho",
+            "fort_atkinson",
+            "kent_faulcon",
+            "joel_mccrary",
+            "dennis_anderson",
+            "matthew_kimbrough",
+            "annette_bening",
+            "thora_birch",
+            "mena_suvari",
+            "allison_janney",
+            "ara_celi",
+            "sue_casey",
+            "brenda_wehle",
+            "lisa_cloud",
+            "alison_faulk",
+            "krista_goodsitt",
+            "lily_houtkin",
+            "carolina_lancaster",
+            "romana_leah",
+            "chekeshka_van_putten",
+            "emily_zachary",
+            "nancy_anderson",
+            "reshma_gajjar",
+            "stephanie_rizzo",
+            "heather_joy_sher",
+            "chelsea_hertford",
+            "amber_smith",
+            "marissa_jaret_winokur",
+            "erin_cathryn_strubbe",
+            "elaine_corral_kendall"
+        ],
+        "moviename": "american_beauty",
+        "year": 1999
+    }
+   ```
