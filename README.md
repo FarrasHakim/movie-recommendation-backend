@@ -120,3 +120,132 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         "year": 1999
     }
    ```
+5. Get Movie Genres
+   Endpoint-URL: `GET /movies/genres/`\
+   Input: **Null**
+
+   Output:
+   ```
+   {
+    "list": [
+            "action",
+            "adventure",
+            "animation",
+            "biography",
+            "comedy",
+            "crime",
+            "documentary",
+            "drama",
+            "family",
+            "fantasy",
+            "history",
+            "horror",
+            "music",
+            "mystery",
+            "romance",
+            "scifi",
+            "short",
+            "sport",
+            "thriller",
+            "war",
+            "western"
+        ]
+    }
+   ```
+6. "Get" Movies by Genre
+   Endpoint-URL: `POST /movies/by-genre/`\
+   Input: 
+   ```
+    {
+        "genre" : "scifi"
+    }
+   ```
+
+   Output:
+   ```
+   {
+    "list": [
+            "cq",
+            "frankenweenie",
+            "ghost_busters",
+            "star_wars_episode_i__the_phantom_menace",
+            "eight_legged_freaks",
+            "the_island"
+        ]
+    }
+   ```
+7. "Get" Movies by Genre
+   Endpoint-URL: `GET /movies/sort-by-year/`\
+   Input: **NULL**
+
+   Output:
+   ```
+   {
+    "list": [
+            "the_godfather",
+            "the_godfather_part_ii",
+            "the_outsiders",
+            "rumble_fish",
+            "blood_simple",
+            "the_cotton_club",
+            "frankenweenie",
+            "ghost_busters",
+            "crimewave",
+            "spies_like_us",
+            "peggy_sue_got_married",
+            "anna",
+            "raising_arizona",
+            "the_godfather_part_iii",
+            "miller_s_crossing",
+            "barton_fink",
+            "hearts_of_darkness_a_filmmaker_s_apocalypse",
+            "inside_monkey_zetterland",
+            "the_firm",
+            "groundhog_day",
+            "the_hudsucker_proxy",
+            "north",
+            "the_usual_suspects",
+            "just_cause",
+            "fargo",
+            "mission_impossible",
+            "if_lucy_fell",
+            "manny__lo",
+            "blade_runner",
+            "fall",
+            "home_alone_3",
+            "the_big_lebowski",
+            "lick_the_star",
+            "the_horse_whisperer",
+            "american_beauty",
+            "star_wars_episode_i__the_phantom_menace",
+            "torrance_rises",
+            "the_virgin_suicides",
+            "my_brother_the_pig",
+            "down_from_the_mountain",
+            "o_brother_where_art_thou",
+            "ghost_world",
+            "cq",
+            "the_man_who_wasn_t_there",
+            "an_american_rhapsody",
+            "eight_legged_freaks",
+            "girl_with_a_pearl_earring",
+            "intolerable_cruelty",
+            "lost_in_translation",
+            "the_ladykillers",
+            "a_good_woman",
+            "in_good_company",
+            "a_love_song_for_bobby_long",
+            "the_perfect_score",
+            "the_spongebob_squarepants_movie",
+            "the_island",
+            "match_point",
+            "hail_caesar",
+            "marie_antoinette",
+            "paris_je_t_aime",
+            "the_black_dahlia",
+            "untitled_woody_allen_fall_project_2006",
+            "no_country_for_old_men",
+            "jojo_rabbit"
+        ]
+    }
+   ```

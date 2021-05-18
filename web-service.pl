@@ -3,6 +3,7 @@
 :- use_module(library(http/http_error)).
 :- use_module(library(http/http_json)).
 :- use_module(library(http/json)).
+:- use_module(library(http/json_convert)).
 :- use_module(library(http/http_header)).
 :- [database].
 
@@ -24,6 +25,9 @@ http:location(food, '/food', []).
 :- http_handler('/test-json/', handle_json_request, []).
 :- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
 :- http_handler('/movies/by-name/', get_movie_by_name, []).
+:- http_handler('/movies/genres/', get_genres, []).
+:- http_handler('/movies/by-genre/', get_movies_by_genre, []).
+:- http_handler('/movies/sort-by-year/', sort_movies_by_year, []).
 % TODO// recommended movie
 % TODO// weekly movie
 % TODO// filter
@@ -80,14 +84,8 @@ get_movie_by_year(Request) :-
    format(user_output,"DictOut is: ~p~n",[DictOut]),
         reply_json(_{list:DictOut}).
 
-/*
-Handlers Method
-*/
-
 get_Data(Request) :-        
         format(user_output,"Request is: ~p~n",[Request]),
-        http_read_request(Fdln, Request),
-        format(user_output,"Request is: ~p~n",[Fdln]),
         listMovies(DictOut),
         reply_json_dict(_{list:DictOut}).
 
@@ -98,6 +96,25 @@ get_movie_by_name(Request) :-
         movieByName(Query, DictOut),
         reply_json(DictOut).
 
+get_genres(Request) :-        
+        format(user_output,"Request is: ~p~n",[Request]),
+        listGenres(DictOut),
+        reply_json_dict(_{list:DictOut}).
+
+get_movies_by_genre(Request) :-
+        http_read_json_dict(Request, Query),
+        format(user_output,"Query is: ~p~n",[Query]),
+        movies_by_genre(Query, DictOut),
+        reply_json(DictOut).
+
+sort_movies_by_year(_) :-
+        listByYear(DictOut),
+        reply_json_dict(_{list:DictOut}).
+
+/*
+Handlers Method
+*/
+
 solve(_{a:X, b:Y}, Dict) :-
     number(X),
     number(Y),
@@ -107,11 +124,14 @@ solve(_{a:X, b:Y}, Dict) :-
 listMovies(List) :-
         findall(Movie, movie(Movie, _), List).
 
+listGenres(List) :-
+        setof(Genre, Movie^genre(Movie,Genre),List).
+
 movieByYear(_{year:Year}, List) :- 
         findall(Movie, movie(Movie, Year), List).
 
 movieByName(_{name:Name}, _{moviename: Name, year:OutputYear, actors: ActorsList}) :-
-        format(user_output,"ActorInput is: ~p~n",[Name]),
+        format(user_output,"MovieName is: ~p~n",[Name]),
         json:to_atom(Name, NameAtom),
         getActors(NameAtom, List),
         bagof(Year, movie(NameAtom, Year), [OutputYear| _]),
@@ -119,4 +139,13 @@ movieByName(_{name:Name}, _{moviename: Name, year:OutputYear, actors: ActorsList
         
 getActors(Movie, List) :-
         findall(Actor, actor(Movie, Actor, _);actress(Movie, Actor, _), List).
+
+movies_by_genre(_{genre:Genre}, _{list:List}) :-
+        json:to_atom(Genre, GenreAtom),
+        findall(Movie, genre(Movie, GenreAtom), List).
+
+listByYear(List) :-
+        findall(Year-Movie, movie(Movie, Year), MovieYears),
+        keysort(MovieYears, Sorted),
+        pairs_values(Sorted, List).
 
