@@ -51,6 +51,7 @@ Part 2: Add rules to the database to do the following,
 :- discontiguous
         movie/2,
         director/2,
+        genre/2,
         actor/3,
         actress/3.
 
@@ -2436,6 +2437,12 @@ actor(fall, evan_thompson, priest).
 actor(fall, larry_weiss, paparazzi).
 
 movie(eight_legged_freaks, 2002).
+genre(eight_legged_freaks, action).
+genre(eight_legged_freaks, adventure).
+genre(eight_legged_freaks, comedy).
+genre(eight_legged_freaks, thriller).
+genre(eight_legged_freaks, horror).
+genre(eight_legged_freaks, scifi).
 director(eight_legged_freaks, ellory_elkayem).
 actor(eight_legged_freaks, david_arquette, chris_mccormick).
 actress(eight_legged_freaks, kari_wuhrer, sheriff_samantha_parker).
@@ -2463,6 +2470,8 @@ actor(eight_legged_freaks, bruiser, himself).
 actor(eight_legged_freaks, tom_noonan, joshua_taft).
 
 movie(ghost_world, 2000).
+genre(ghost_world, comedy).
+genre(ghost_world, drama).
 director(ghost_world, terry_zwigoff).
 actress(ghost_world, thora_birch, enid).
 actress(ghost_world, scarlett_johansson, rebecca).
@@ -2538,6 +2547,9 @@ actress(ghost_world, michelle_marie_white, mom_in_convenience_store).
 actor(ghost_world, peter_yarrow, himself).
 
 movie(a_good_woman, 2004).
+genre(a_good_woman, drama).
+genre(a_good_woman, comedy).
+genre(a_good_woman, romance).
 director(a_good_woman, mike_barker).
 actress(a_good_woman, helen_hunt, mrs_erlynne).
 actress(a_good_woman, scarlett_johansson, meg_windermere).
@@ -2564,6 +2576,8 @@ actress(a_good_woman, camilla_bertocci, stella_s_maid_2).
 actress(a_good_woman, nichola_aigner, mrs_gowper).
 
 movie(if_lucy_fell, 1996).
+genre(if_lucy_fell, comedy).
+genre(if_lucy_fell, romance).
 director(if_lucy_fell, eric_schaeffer).
 actress(if_lucy_fell, sarah_jessica_parker, lucy_ackerman).
 actor(if_lucy_fell, eric_schaeffer, joe_macgonaughgill).
@@ -2591,6 +2605,10 @@ actor(if_lucy_fell, brian_keane, man_in_gallery).
 actress(if_lucy_fell, amanda_kravat, woman_in_park).
 
 movie(home_alone_3, 1997).
+genre(home_alone_3, action).
+genre(home_alone_3, comedy).
+genre(home_alone_3, crime).
+genre(home_alone_3, family).
 director(home_alone_3, raja_gosnell).
 actor(home_alone_3, alex_d_linz, alex_pruitt).
 actor(home_alone_3, olek_krupa, peter_beaupre).
@@ -2627,6 +2645,9 @@ actor(home_alone_3, zachary_lee, johnny_allen).
 actress(home_alone_3, kelly_ann_marquart, girl_on_sidewalk).
 
 movie(the_horse_whisperer, 1998).
+genre(the_horse_whisperer, drama).
+genre(the_horse_whisperer, romance).
+genre(the_horse_whisperer, western).
 director(the_horse_whisperer, robert_redford).
 actor(the_horse_whisperer, robert_redford, tom_booker).
 actress(the_horse_whisperer, kristin_scott_thomas, annie_maclean).
@@ -2667,6 +2688,9 @@ actor(the_horse_whisperer, donnie_saylor, rugged_cowboy).
 actor(the_horse_whisperer, george_strait, himself).
 
 movie(in_good_company, 2004).
+genre(in_good_company, comedy).
+genre(in_good_company, drama).
+genre(in_good_company, romance).
 director(in_good_company, paul_weitz).
 actor(in_good_company, dennis_quaid, dan_foreman).
 actor(in_good_company, topher_grace, carter_duryea).
@@ -2720,6 +2744,11 @@ actress(in_good_company, loretta_shenosky, kalb_s_assistant).
 actor(in_good_company, trevor_stynes, man_on_street).
 
 movie(just_cause, 1995).
+genre(just_cause, action).
+genre(just_cause, crime).
+genre(just_cause, drama).
+genre(just_cause, mystery).
+genre(just_cause, thriller).
 director(just_cause, arne_glimcher).
 actor(just_cause, sean_connery, paul_armstrong).
 actor(just_cause, laurence_fishburne, sheriff_tanny_brown).
@@ -2779,6 +2808,9 @@ actor(just_cause, michael_sassano, courtroom_observer).
 actor(just_cause, rene_teboe, man_in_bus_terminal).
 
 movie(the_island, 2005).
+genre(the_island, action).
+genre(the_island, scifi).
+genre(the_island, thriller).
 director(the_island, michael_bay).
 actor(the_island, ewan_mcgregor, lincoln_six_echo_tom_lincoln).
 actress(the_island, scarlett_johansson, jordan_two_delta_sarah_jordan).
@@ -2858,6 +2890,7 @@ actor(the_island, skyler_stone, sarah_jordan_s_husband).
 actor(the_island, richard_john_walters, agnate).
 
 movie(a_love_song_for_bobby_long, 2004).
+genre(a_love_song_for_bobby_long, drama).
 director(a_love_song_for_bobby_long, shainee_gabel).
 actor(a_love_song_for_bobby_long, john_travolta, bobby_long).
 actress(a_love_song_for_bobby_long, scarlett_johansson, pursy_will).
@@ -2885,6 +2918,8 @@ actor(a_love_song_for_bobby_long, sal_sapienza, jazz_club_patron).
 actor(a_love_song_for_bobby_long, doc_whitney, alcoholic).
 
 movie(manny__lo, 1996).
+genre(manny__lo, comedy).
+genre(manny__lo, drama).
 director(manny__lo, lisa_krueger).
 actress(manny__lo, mary_kay_place, elaine).
 actress(manny__lo, scarlett_johansson, amanda).
@@ -2916,6 +2951,9 @@ actor(manny__lo, tony_arnaud, sheriff).
 actor(manny__lo, nicholas_lent, lo_s_baby).
 
 movie(match_point, 2005).
+genre(match_point, drama).
+genre(match_point, romance).
+genre(match_point, thriller).
 director(match_point, woody_allen).
 actress(match_point, scarlett_johansson, nola_rice).
 actor(match_point, jonathan_rhys_meyers, chris_wilton).
@@ -2935,6 +2973,9 @@ actor(match_point, colin_salmon, '').
 actress(match_point, zoe_telford, samantha).
 
 movie(my_brother_the_pig, 1999).
+genre(my_brother_the_pig, comedy).
+genre(my_brother_the_pig, family).
+genre(my_brother_the_pig, fantasy).
 director(my_brother_the_pig, erik_fleming).
 actor(my_brother_the_pig, nick_fuoco, george_caldwell).
 actress(my_brother_the_pig, scarlett_johansson, kathy_caldwell).
@@ -2955,6 +2996,11 @@ actor(my_brother_the_pig, rob_johnston, taxi_driver).
 actor(my_brother_the_pig, dee_bradley_baker, pig_george).
 
 movie(north, 1994).
+genre(north, adventure).
+genre(north, comedy).
+genre(north, drama).
+genre(north, family).
+genre(north, fantasy).
 director(north, rob_reiner).
 actor(north, elijah_wood, north).
 actor(north, jason_alexander, north_s_dad).
@@ -3070,6 +3116,9 @@ actor(north, jim_great_elk_waters, eskimo_father).
 actor(north, michael_werckle, amish_boy).
 
 movie(the_perfect_score, 2004).
+genre(the_perfect_score, comedy).
+genre(the_perfect_score, crime).
+genre(the_perfect_score, drama).
 director(the_perfect_score, brian_robbins).
 actress(the_perfect_score, erika_christensen, anna_ross).
 actor(the_perfect_score, chris_evans, kyle).
@@ -3112,6 +3161,12 @@ actor(the_perfect_score, rob_boyce, guard).
 actor(the_perfect_score, paul_campbell, guy_in_truck).
 
 movie(the_spongebob_squarepants_movie, 2004).
+genre(the_spongebob_squarepants_movie, adventure).
+genre(the_spongebob_squarepants_movie, action).
+genre(the_spongebob_squarepants_movie, comedy).
+genre(the_spongebob_squarepants_movie, animation).
+genre(the_spongebob_squarepants_movie, family).
+genre(the_spongebob_squarepants_movie, fantasy).
 director(the_spongebob_squarepants_movie, stephen_hillenburg).
 actor(the_spongebob_squarepants_movie, tom_kenny, spongebob_narrator_gary_clay_tough_fish_2_twin_2_houston_voice).
 actor(the_spongebob_squarepants_movie, clancy_brown, mr_krabs).
@@ -3163,6 +3218,10 @@ actor(the_spongebob_squarepants_movie, michael_patrick_bell, fisherman).
 actor(the_spongebob_squarepants_movie, jim_wise, goofy_goober_rock_singer).
 
 movie(untitled_woody_allen_fall_project_2006, 2006).
+genre(untitled_woody_allen_fall_project_2006, comedy).
+genre(untitled_woody_allen_fall_project_2006, crime).
+genre(untitled_woody_allen_fall_project_2006, fantasy).
+genre(untitled_woody_allen_fall_project_2006, mystery).
 director(untitled_woody_allen_fall_project_2006, woody_allen).
 actor(untitled_woody_allen_fall_project_2006, woody_allen, '').
 actor(untitled_woody_allen_fall_project_2006, jody_halse, bouncer).
@@ -3174,6 +3233,23 @@ actor(untitled_woody_allen_fall_project_2006, ian_mcshane, '').
 actor(untitled_woody_allen_fall_project_2006, james_nesbitt, '').
 actor(untitled_woody_allen_fall_project_2006, colin_salmon, '').
 
-movie(a_view_from_the_bridge, 2006).
-actress(a_view_from_the_bridge, scarlett_johansson, catherine).
-actor(a_view_from_the_bridge, anthony_lapaglia, eddie_carbone).
+movie(jojo_rabbit, 2019).
+genre(jojo_rabbit, comedy).
+genre(jojo_rabbit, drama).
+genre(jojo_rabbit, war).
+director(jojo_rabbit, taika_waititi).
+actress(jojo_rabbit, 'Thomasin McKenzie', 'Elsa').
+actress(jojo_rabbit, 'Scarlett Johansson', 'Rosie').
+actress(jojo_rabbit, 'Rebel Wilson', 'Fraulein Rahm').
+actor(jojo_rabbit, 'Roman Griffin Davis', 'Jojo').
+actor(jojo_rabbit, 'Taika Waititi', 'Adolf').
+actor(jojo_rabbit, 'Alfie Allen', 'Finkel').
+actor(jojo_rabbit, 'Stephen Merchant', 'Deertz').
+actor(jojo_rabbit, 'Archie Yates', 'Yorki').
+actor(jojo_rabbit, 'Luke Brandon Field', 'Christoph').
+actor(jojo_rabbit, 'Sam Haygarth', 'Hans').
+actor(jojo_rabbit, 'Stanislav Callas', 'Russian Soldier').
+actor(jojo_rabbit, 'Joe Weintraub', 'Herr Junker').
+actor(jojo_rabbit, 'Brian Caspe', 'Herr Mueller').
+actor(jojo_rabbit, 'Gabriel Andrews', 'Herr Klum').
+actor(jojo_rabbit, 'Sam Rockwell', 'Captain Klenzendorf').
