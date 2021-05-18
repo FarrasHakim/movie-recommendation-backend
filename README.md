@@ -12,6 +12,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
 
 #### Contoh request yang dapat dijalankan
 1. "Get" Movies
+   
    Endpoint-URL: `GET /movies`\
    Input: **Null**
 
@@ -31,6 +32,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
 
 2. Add Number
+   
    Endpoint-URL: `POST /add`\
    Input:
    ```
@@ -47,6 +49,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    }
    ```
 3. Get Movies By Year
+   
    Endpoint-URL: `POST /movies/filter-by-year/`\
    Input:
    ```
@@ -67,6 +70,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
     }
    ```
 4. Get Movies By Name
+   
    Endpoint-URL: `POST /movies/by-name/`\
    Input:
    ```
@@ -121,6 +125,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
     }
    ```
 5. Get Movie Genres
+   
    Endpoint-URL: `GET /movies/genres/`\
    Input: **Null**
 
@@ -153,6 +158,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
     }
    ```
 6. "Get" Movies by Genre
+   
    Endpoint-URL: `POST /movies/by-genre/`\
    Input: 
    ```
@@ -174,7 +180,8 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         ]
     }
    ```
-7. "Get" Movies by Genre
+7. Get Movies List Sorted By Year
+   
    Endpoint-URL: `GET /movies/sort-by-year/`\
    Input: **NULL**
 
