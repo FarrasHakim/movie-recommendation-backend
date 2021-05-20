@@ -120,6 +120,10 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
             "erin_cathryn_strubbe",
             "elaine_corral_kendall"
         ],
+        "genres": [
+            "drama",
+            "comedy"
+        ],
         "moviename": "american_beauty",
         "year": 1999
     }

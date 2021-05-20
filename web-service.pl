@@ -18,14 +18,16 @@ http:location(food, '/food', []).
 
 % And, just for clarity, define a second handler
 % this one can by reached at http://127.0.0.1:8000/taco
-:- http_handler(food(tacos), say_taco, []).
-:- http_handler(food(kebabs), say_kebab, []).
+:- http_handler(food('tacos/'), say_taco, []).
+:- http_handler(food('kebabs/'), say_kebab, []).
 :- http_handler('/add/', handle_request, []).
 :- http_handler('/movies', get_Data, []).
 :- http_handler('/movies/', get_Data, []).
+:- http_handler('/movies/add', add_movie, []).
+:- http_handler('/movies/add/', add_movie, []).
 :- http_handler('/test-json/', handle_json_request, []).
 :- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
-:- http_handler('/movies/by-name/', get_movie_by_name, []).
+:- http_handler('/movies/detail/', get_movie_by_name, []).
 :- http_handler('/movies/genres/', get_genres, []).
 :- http_handler('/movies/by-genre/', get_movies_by_genre, []).
 :- http_handler('/movies/sort-by-year/', sort_movies_by_year, []).
@@ -112,6 +114,12 @@ sort_movies_by_year(_) :-
         listByYear(DictOut),
         reply_json_dict(_{list:DictOut}).
 
+add_movie(Request) :-
+        http_read_json_dict(Request, Query),
+        format(user_output,"Query is: ~p~n",[Query]),
+        assert_movie(Query, DictOut),
+        reply_json(DictOut).
+
 /*
 Handlers Method
 */
@@ -132,11 +140,12 @@ listGenres(List) :-
 movieByYear(_{year:Year}, List) :- 
         findall(Movie, movie(Movie, Year), List).
 
-movieByName(_{name:Name}, _{moviename: Name, year:OutputYear, actors: ActorsList}) :-
+movieByName(_{name:Name}, _{moviename: Name, year:OutputYear, actors: ActorsList, genres: ListGenre}) :-
         format(user_output,"MovieName is: ~p~n",[Name]),
         json:to_atom(Name, NameAtom),
         getActors(NameAtom, List),
         bagof(Year, movie(NameAtom, Year), [OutputYear| _]),
+        bagof(Genre, genre(NameAtom, Genre), ListGenre),
         ActorsList = List.
         
 getActors(Movie, List) :-
@@ -150,4 +159,8 @@ listByYear(List) :-
         findall(Year-Movie, movie(Movie, Year), MovieYears),
         keysort(MovieYears, Sorted),
         pairs_values(Sorted, List).
+
+assert_movie(_{name:MovieName, year:MovieYear}, DictOut) :-
+        assert(movie(MovieName, MovieYear)),
+        DictOut = _{response:'Success'}.
 

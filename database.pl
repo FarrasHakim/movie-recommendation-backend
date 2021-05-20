@@ -55,6 +55,13 @@ Part 2: Add rules to the database to do the following,
         actor/3,
         actress/3.
 
+:- dynamic 
+        movie/2,
+        director/2,
+        genre/2,
+        actor/3,
+        actress/3.
+
 movie(american_beauty, 1999).
 genre(american_beauty, comedy).
 genre(american_beauty, drama).
