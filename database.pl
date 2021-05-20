@@ -3237,7 +3237,7 @@ movie(jojo_rabbit, 2019).
 genre(jojo_rabbit, comedy).
 genre(jojo_rabbit, drama).
 genre(jojo_rabbit, war).
-director(jojo_rabbit, taika_waititi).
+director(jojo_rabbit, 'Taika Waititi').
 actress(jojo_rabbit, 'Thomasin McKenzie', 'Elsa').
 actress(jojo_rabbit, 'Scarlett Johansson', 'Rosie').
 actress(jojo_rabbit, 'Rebel Wilson', 'Fraulein Rahm').

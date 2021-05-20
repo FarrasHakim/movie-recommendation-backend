@@ -21,6 +21,7 @@ http:location(food, '/food', []).
 :- http_handler(food(tacos), say_taco, []).
 :- http_handler(food(kebabs), say_kebab, []).
 :- http_handler('/add/', handle_request, []).
+:- http_handler('/movies', get_Data, []).
 :- http_handler('/movies/', get_Data, []).
 :- http_handler('/test-json/', handle_json_request, []).
 :- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
@@ -122,7 +123,8 @@ solve(_{a:X, b:Y}, Dict) :-
     Dict = _{sum: N}.
 
 listMovies(List) :-
-        findall(Movie, movie(Movie, _), List).
+        setof(Movie, Year^movie(Movie,Year),List). 
+        % findall(Movie, movie(Movie, _), List).
 
 listGenres(List) :-
         setof(Genre, Movie^genre(Movie,Genre),List).
