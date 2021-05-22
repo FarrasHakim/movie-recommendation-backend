@@ -50,13 +50,9 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
 3. Get Movies By Year
    
-   Endpoint-URL: `POST /movies/filter-by-year/`\
-   Input:
-   ```
-   {
-       "year":1999
-   }
-   ```
+   Endpoint-URL: `GET /movies/filter-by-year?year=1999`\
+   Input: **NULL**
+   
    Output:
    ```
    {
@@ -159,13 +155,8 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
 6. "Get" Movies by Genre
    
-   Endpoint-URL: `POST /movies/by-genre/`\
-   Input: 
-   ```
-    {
-        "genre" : "scifi"
-    }
-   ```
+   Endpoint-URL: `GET /movies/by-genre?genre=scifi`\
+   Input: **NULL**
 
    Output:
    ```
