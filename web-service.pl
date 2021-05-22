@@ -112,7 +112,8 @@ get_movies_by_genre(Request) :-
         movies_by_genre(Genre, DictOut),
         reply_json(DictOut).
 
-sort_movies_by_year(_) :-
+sort_movies_by_year(Request) :-
+        format(user_output,"Request is: ~p~n",[Request]),
         listByYear(DictOut),
         reply_json_dict(_{list:DictOut}).
 
@@ -167,7 +168,18 @@ movies_by_genre(Genre, _{list:List}) :-
 listByYear(List) :-
         findall(Year-Movie, movie(Movie, Year), MovieYears),
         keysort(MovieYears, Sorted),
-        pairs_values(Sorted, List).
+        findall(Year, movie(_,Year), YearList),
+        msort(YearList, SortedYearList),
+        pairs_values(Sorted, MovieList),
+        list_to_dict_list(SortedYearList, MovieList, List).
+
+list_to_dict_list([],[],_).
+list_to_dict_list([Year],[Movie],ListDict) :-
+        ListDict = [_{year:Year, movie:Movie}].
+list_to_dict_list([Year|YearList], [Movie|MovieList], ListDict) :-
+        list_to_dict_list(YearList, MovieList, Temp),
+        append([_{year:Year, movie:Movie}], Temp, ListDict).
+
 
 assert_movie(_{name:MovieName, year:MovieYear}, DictOut) :-
         assert(movie(MovieName, MovieYear)),

@@ -52,7 +52,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    
    Endpoint-URL: `GET /movies/filter-by-year?year=1999`\
    Input: **NULL**
-   
+
    Output:
    ```
    {
@@ -180,70 +180,262 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
    {
     "list": [
-            "the_godfather",
-            "the_godfather_part_ii",
-            "the_outsiders",
-            "rumble_fish",
-            "blood_simple",
-            "the_cotton_club",
-            "frankenweenie",
-            "ghost_busters",
-            "crimewave",
-            "spies_like_us",
-            "peggy_sue_got_married",
-            "anna",
-            "raising_arizona",
-            "the_godfather_part_iii",
-            "miller_s_crossing",
-            "barton_fink",
-            "hearts_of_darkness_a_filmmaker_s_apocalypse",
-            "inside_monkey_zetterland",
-            "the_firm",
-            "groundhog_day",
-            "the_hudsucker_proxy",
-            "north",
-            "the_usual_suspects",
-            "just_cause",
-            "fargo",
-            "mission_impossible",
-            "if_lucy_fell",
-            "manny__lo",
-            "blade_runner",
-            "fall",
-            "home_alone_3",
-            "the_big_lebowski",
-            "lick_the_star",
-            "the_horse_whisperer",
-            "american_beauty",
-            "star_wars_episode_i__the_phantom_menace",
-            "torrance_rises",
-            "the_virgin_suicides",
-            "my_brother_the_pig",
-            "down_from_the_mountain",
-            "o_brother_where_art_thou",
-            "ghost_world",
-            "cq",
-            "the_man_who_wasn_t_there",
-            "an_american_rhapsody",
-            "eight_legged_freaks",
-            "girl_with_a_pearl_earring",
-            "intolerable_cruelty",
-            "lost_in_translation",
-            "the_ladykillers",
-            "a_good_woman",
-            "in_good_company",
-            "a_love_song_for_bobby_long",
-            "the_perfect_score",
-            "the_spongebob_squarepants_movie",
-            "the_island",
-            "match_point",
-            "hail_caesar",
-            "marie_antoinette",
-            "paris_je_t_aime",
-            "the_black_dahlia",
-            "untitled_woody_allen_fall_project_2006",
-            "no_country_for_old_men",
-            "jojo_rabbit"
+            {
+                "movie": "the_godfather",
+                "year": 1972
+            },
+            {
+                "movie": "the_godfather_part_ii",
+                "year": 1974
+            },
+            {
+                "movie": "the_outsiders",
+                "year": 1983
+            },
+            {
+                "movie": "rumble_fish",
+                "year": 1983
+            },
+            {
+                "movie": "blood_simple",
+                "year": 1984
+            },
+            {
+                "movie": "the_cotton_club",
+                "year": 1984
+            },
+            {
+                "movie": "frankenweenie",
+                "year": 1984
+            },
+            {
+                "movie": "ghost_busters",
+                "year": 1984
+            },
+            {
+                "movie": "crimewave",
+                "year": 1985
+            },
+            {
+                "movie": "spies_like_us",
+                "year": 1985
+            },
+            {
+                "movie": "peggy_sue_got_married",
+                "year": 1986
+            },
+            {
+                "movie": "anna",
+                "year": 1987
+            },
+            {
+                "movie": "raising_arizona",
+                "year": 1987
+            },
+            {
+                "movie": "the_godfather_part_iii",
+                "year": 1990
+            },
+            {
+                "movie": "miller_s_crossing",
+                "year": 1990
+            },
+            {
+                "movie": "barton_fink",
+                "year": 1991
+            },
+            {
+                "movie": "hearts_of_darkness_a_filmmaker_s_apocalypse",
+                "year": 1991
+            },
+            {
+                "movie": "inside_monkey_zetterland",
+                "year": 1992
+            },
+            {
+                "movie": "the_firm",
+                "year": 1993
+            },
+            {
+                "movie": "groundhog_day",
+                "year": 1993
+            },
+            {
+                "movie": "the_hudsucker_proxy",
+                "year": 1994
+            },
+            {
+                "movie": "north",
+                "year": 1994
+            },
+            {
+                "movie": "the_usual_suspects",
+                "year": 1995
+            },
+            {
+                "movie": "just_cause",
+                "year": 1995
+            },
+            {
+                "movie": "fargo",
+                "year": 1996
+            },
+            {
+                "movie": "mission_impossible",
+                "year": 1996
+            },
+            {
+                "movie": "if_lucy_fell",
+                "year": 1996
+            },
+            {
+                "movie": "manny__lo",
+                "year": 1996
+            },
+            {
+                "movie": "blade_runner",
+                "year": 1997
+            },
+            {
+                "movie": "fall",
+                "year": 1997
+            },
+            {
+                "movie": "home_alone_3",
+                "year": 1997
+            },
+            {
+                "movie": "the_big_lebowski",
+                "year": 1998
+            },
+            {
+                "movie": "lick_the_star",
+                "year": 1998
+            },
+            {
+                "movie": "the_horse_whisperer",
+                "year": 1998
+            },
+            {
+                "movie": "american_beauty",
+                "year": 1999
+            },
+            {
+                "movie": "star_wars_episode_i__the_phantom_menace",
+                "year": 1999
+            },
+            {
+                "movie": "torrance_rises",
+                "year": 1999
+            },
+            {
+                "movie": "the_virgin_suicides",
+                "year": 1999
+            },
+            {
+                "movie": "my_brother_the_pig",
+                "year": 1999
+            },
+            {
+                "movie": "down_from_the_mountain",
+                "year": 2000
+            },
+            {
+                "movie": "o_brother_where_art_thou",
+                "year": 2000
+            },
+            {
+                "movie": "ghost_world",
+                "year": 2000
+            },
+            {
+                "movie": "cq",
+                "year": 2001
+            },
+            {
+                "movie": "the_man_who_wasn_t_there",
+                "year": 2001
+            },
+            {
+                "movie": "an_american_rhapsody",
+                "year": 2001
+            },
+            {
+                "movie": "eight_legged_freaks",
+                "year": 2002
+            },
+            {
+                "movie": "girl_with_a_pearl_earring",
+                "year": 2003
+            },
+            {
+                "movie": "intolerable_cruelty",
+                "year": 2003
+            },
+            {
+                "movie": "lost_in_translation",
+                "year": 2003
+            },
+            {
+                "movie": "the_ladykillers",
+                "year": 2004
+            },
+            {
+                "movie": "a_good_woman",
+                "year": 2004
+            },
+            {
+                "movie": "in_good_company",
+                "year": 2004
+            },
+            {
+                "movie": "a_love_song_for_bobby_long",
+                "year": 2004
+            },
+            {
+                "movie": "the_perfect_score",
+                "year": 2004
+            },
+            {
+                "movie": "the_spongebob_squarepants_movie",
+                "year": 2004
+            },
+            {
+                "movie": "the_island",
+                "year": 2005
+            },
+            {
+                "movie": "match_point",
+                "year": 2005
+            },
+            {
+                "movie": "hail_caesar",
+                "year": 2006
+            },
+            {
+                "movie": "marie_antoinette",
+                "year": 2006
+            },
+            {
+                "movie": "paris_je_t_aime",
+                "year": 2006
+            },
+            {
+                "movie": "the_black_dahlia",
+                "year": 2006
+            },
+            {
+                "movie": "untitled_woody_allen_fall_project_2006",
+                "year": 2006
+            },
+            {
+                "movie": "no_country_for_old_men",
+                "year": 2007
+            },
+            {
+                "movie": "jojo_rabbit",
+                "year": 2019
+            }
         ]
     }
    ```
