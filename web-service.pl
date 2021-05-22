@@ -7,6 +7,7 @@
 :- use_module(library(http/http_header)).
 :- use_module(library(http/http_parameters)).
 :- [database].
+:- [utils].
 
 http:location(files, '/f', []).
 http:location(food, '/food', []).
@@ -150,14 +151,15 @@ movieByYear(Year, List) :-
         atom_number(Year, YearNumber),
         findall(Movie, movie(Movie, YearNumber), List).
 
-movieByName(Name, _{moviename: Name, year:OutputYear, actors: ActorsList, genres: ListGenre}) :-
-        format(user_output,"MovieName is: ~p~n",[Name]),
+movieByName(Name, _{moviename: MovieName, year:OutputYear, actors: ActorsList, genres: ListGenre}) :-
         json:to_atom(Name, NameAtom),
-        getActors(NameAtom, List),
-        bagof(Year, movie(NameAtom, Year), [OutputYear| _]),
-        bagof(Genre, genre(NameAtom, Genre), ListGenre),
+        getMovieName(NameAtom, MovieName),
+        format(user_output,"MovieName is: ~p~n",[MovieName]),
+        getActors(MovieName, List),
+        bagof(Year, movie(MovieName, Year), [OutputYear| _]),
+        bagof(Genre, genre(MovieName, Genre), ListGenre),
         ActorsList = List.
-        
+
 getActors(Movie, List) :-
         findall(Actor, actor(Movie, Actor, _);actress(Movie, Actor, _), List).
 
