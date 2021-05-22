@@ -71,13 +71,9 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
 4. Get Movies By Name
    
-   Endpoint-URL: `POST /movies/by-name/`\
-   Input:
-   ```
-   {
-       "name":"american_beauty"
-   }
-   ```
+   Endpoint-URL: `GET /movies/detail?name=american_beauty`\
+   Input:**NULL**
+
    Output:
    ```
    {

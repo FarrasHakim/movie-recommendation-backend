@@ -5,6 +5,7 @@
 :- use_module(library(http/json)).
 :- use_module(library(http/json_convert)).
 :- use_module(library(http/http_header)).
+:- use_module(library(http/http_parameters)).
 :- [database].
 
 http:location(files, '/f', []).
@@ -25,16 +26,17 @@ http:location(food, '/food', []).
 :- http_handler('/movies/', get_Data, []).
 :- http_handler('/movies/add', add_movie, []).
 :- http_handler('/movies/add/', add_movie, []).
+:- http_handler('/movies/delete', delete_movie, []).
+:- http_handler('/movies/delete/', delete_movie, []).
 :- http_handler('/test-json/', handle_json_request, []).
 :- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
+:- http_handler('/movies/detail', get_movie_by_name, []).
 :- http_handler('/movies/detail/', get_movie_by_name, []).
 :- http_handler('/movies/genres/', get_genres, []).
 :- http_handler('/movies/by-genre/', get_movies_by_genre, []).
 :- http_handler('/movies/sort-by-year/', sort_movies_by_year, []).
 % TODO// recommended movie
-% TODO// weekly movie
 % TODO// filter
-% TODO// genre
 
 % The predicate server(?Port) starts the server. It simply creates a
 % number of Prolog threads and then returns to the toplevel, so you can
@@ -93,10 +95,10 @@ get_Data(Request) :-
         reply_json_dict(_{list:DictOut}).
 
 get_movie_by_name(Request) :- 
-        http_read_json_dict(Request, Query),
-        format(user_output,"Query is: ~p~n",[Query]),
-        format(user_output,"Query is: ~p~n",[Query.name]),
-        movieByName(Query, DictOut),
+        http_parameters(Request, [name(Name, [])]),
+        format(user_output,"Query is: ~p~n",[Name]),
+        % format(user_output,"Query is: ~p~n",[Query.name]),
+        movieByName(Name, DictOut),
         reply_json(DictOut).
 
 get_genres(Request) :-        
@@ -120,6 +122,12 @@ add_movie(Request) :-
         assert_movie(Query, DictOut),
         reply_json(DictOut).
 
+delete_movie(Request) :-
+        http_read_json_dict(Request, Query),
+        format(user_output,"Query is: ~p~n",[Query]),
+        delete_movie(Query, DictOut),
+        reply_json(DictOut).
+
 /*
 Handlers Method
 */
@@ -140,7 +148,7 @@ listGenres(List) :-
 movieByYear(_{year:Year}, List) :- 
         findall(Movie, movie(Movie, Year), List).
 
-movieByName(_{name:Name}, _{moviename: Name, year:OutputYear, actors: ActorsList, genres: ListGenre}) :-
+movieByName(Name, _{moviename: Name, year:OutputYear, actors: ActorsList, genres: ListGenre}) :-
         format(user_output,"MovieName is: ~p~n",[Name]),
         json:to_atom(Name, NameAtom),
         getActors(NameAtom, List),
@@ -163,4 +171,8 @@ listByYear(List) :-
 assert_movie(_{name:MovieName, year:MovieYear}, DictOut) :-
         assert(movie(MovieName, MovieYear)),
         DictOut = _{response:'Success'}.
+
+delete_movie(_{name:MovieName}, DictOut) :-
+        retract(movie(MovieName, _)),
+        DictOut = _{response:'Delete Success'}.
 
