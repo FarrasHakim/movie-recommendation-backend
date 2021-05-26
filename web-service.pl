@@ -105,13 +105,6 @@ delete_movie(Request) :-
 Handlers Method
 */
 
-listMovies(List) :-
-        setof(Movie, Year^movie(Movie,Year),List). 
-        % findall(Movie, movie(Movie, _), List).
-
-listGenres(List) :-
-        setof(Genre, Movie^genre(Movie,Genre),List).
-
 movieByYear(Year, List) :- 
         atom_number(Year, YearNumber),
         findall(Movie, movie(Movie, YearNumber), List).
@@ -127,14 +120,6 @@ listByYear(List) :-
         msort(YearList, SortedYearList),
         pairs_values(Sorted, MovieList),
         list_to_dict_list(SortedYearList, MovieList, List).
-
-list_to_dict_list([],[],_).
-list_to_dict_list([Year],[Movie],ListDict) :-
-        ListDict = [_{year:Year, movie:Movie}].
-list_to_dict_list([Year|YearList], [Movie|MovieList], ListDict) :-
-        list_to_dict_list(YearList, MovieList, Temp),
-        append([_{year:Year, movie:Movie}], Temp, ListDict).
-
 
 assert_movie(_{name:MovieName, year:MovieYear}, DictOut) :-
         assert(movie(MovieName, MovieYear)),
