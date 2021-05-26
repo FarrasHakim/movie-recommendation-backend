@@ -9,6 +9,7 @@
 :- [database].
 :- [utils].
 :- [controller/movieFilterByName].
+:- [controller/movieSortByName].
 
 http:location(files, '/f', []).
 http:location(food, '/food', []).
@@ -35,6 +36,8 @@ http:location(food, '/food', []).
 :- http_handler('/movies/by-genre', get_movies_by_genre, []).
 :- http_handler('/movies/by-genre/', get_movies_by_genre, []).
 :- http_handler('/movies/sort-by-year/', sort_movies_by_year, []).
+:- http_handler('/movies/sort/name', sort_movies_by_name, []).
+:- http_handler('/movies/sort/name/', sort_movies_by_name, []).
 % TODO// recommended movie
 % TODO// filter
 
@@ -43,7 +46,6 @@ http:location(food, '/food', []).
 % (re-)load code, debug, etc.
 server(Port) :-
         http_server(http_dispatch, [port(Port)]).
-
 /* The implementation of /hello_world. The single argument provides the request
 details, which we ignore for now. Our task is to write a CGI-Document:
 a number of name: value -pair lines, followed by two newlines, followed
