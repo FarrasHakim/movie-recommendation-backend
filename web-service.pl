@@ -24,10 +24,6 @@ http:location(food, '/food', []).
 % this one can by reached at http://127.0.0.1:8000/taco
 :- http_handler('/movies', get_Data, []).
 :- http_handler('/movies/', get_Data, []).
-:- http_handler('/movies/add', add_movie, []).
-:- http_handler('/movies/add/', add_movie, []).
-:- http_handler('/movies/delete', delete_movie, []).
-:- http_handler('/movies/delete/', delete_movie, []).
 :- http_handler('/movies/filter-by-year', get_movie_by_year, []).
 :- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
 :- http_handler('/movies/detail', get_movie_by_name, []).
@@ -91,18 +87,6 @@ sort_movies_by_year(Request) :-
         listByYear(DictOut),
         reply_json_dict(_{list:DictOut}).
 
-add_movie(Request) :-
-        http_read_json_dict(Request, Query),
-        format(user_output,"Query is: ~p~n",[Query]),
-        assert_movie(Query, DictOut),
-        reply_json(DictOut).
-
-delete_movie(Request) :-
-        http_read_json_dict(Request, Query),
-        format(user_output,"Query is: ~p~n",[Query]),
-        delete_movie(Query, DictOut),
-        reply_json(DictOut).
-
 /*
 Handlers Method
 */
@@ -122,12 +106,4 @@ listByYear(List) :-
         msort(YearList, SortedYearList),
         pairs_values(Sorted, MovieList),
         list_to_dict_list(SortedYearList, MovieList, List).
-
-assert_movie(_{name:MovieName, year:MovieYear}, DictOut) :-
-        assert(movie(MovieName, MovieYear)),
-        DictOut = _{response:'Success'}.
-
-delete_movie(_{name:MovieName}, DictOut) :-
-        retract(movie(MovieName, _)),
-        DictOut = _{response:'Delete Success'}.
 
