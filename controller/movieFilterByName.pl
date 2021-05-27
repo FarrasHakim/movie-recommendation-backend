@@ -1,4 +1,4 @@
-:- [utils].
+:- [dao/movies/filter/name].
 
 get_movie_by_name(Request) :- 
     http_parameters(Request, [name(Name, [])]),

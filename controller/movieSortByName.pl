@@ -1,4 +1,4 @@
-:- [dao/movies/sort/byName].
+:- [dao/movies/sort/name].
 
 sort_movies_by_name(Request) :-
     format(user_output,"Request is: ~p~n",[Request]),
