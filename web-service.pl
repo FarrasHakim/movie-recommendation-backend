@@ -9,6 +9,7 @@
 :- [database].
 :- [utils].
 :- [controller/movieFilterByName].
+:- [controller/movieSortByName].
 
 http:location(files, '/f', []).
 http:location(food, '/food', []).
@@ -35,6 +36,8 @@ http:location(food, '/food', []).
 :- http_handler('/movies/by-genre', get_movies_by_genre, []).
 :- http_handler('/movies/by-genre/', get_movies_by_genre, []).
 :- http_handler('/movies/sort-by-year/', sort_movies_by_year, []).
+:- http_handler('/movies/sort/name', sort_movies_by_name, []).
+:- http_handler('/movies/sort/name/', sort_movies_by_name, []).
 % TODO// recommended movie
 % TODO// filter
 
@@ -43,7 +46,6 @@ http:location(food, '/food', []).
 % (re-)load code, debug, etc.
 server(Port) :-
         http_server(http_dispatch, [port(Port)]).
-
 /* The implementation of /hello_world. The single argument provides the request
 details, which we ignore for now. Our task is to write a CGI-Document:
 a number of name: value -pair lines, followed by two newlines, followed
@@ -105,13 +107,6 @@ delete_movie(Request) :-
 Handlers Method
 */
 
-listMovies(List) :-
-        setof(Movie, Year^movie(Movie,Year),List). 
-        % findall(Movie, movie(Movie, _), List).
-
-listGenres(List) :-
-        setof(Genre, Movie^genre(Movie,Genre),List).
-
 movieByYear(Year, List) :- 
         atom_number(Year, YearNumber),
         findall(Movie, movie(Movie, YearNumber), List).
@@ -127,20 +122,6 @@ listByYear(List) :-
         msort(YearList, SortedYearList),
         pairs_values(Sorted, MovieList),
         list_to_dict_list(SortedYearList, MovieList, List).
-
-list_to_dict_list([],[],_).
-list_to_dict_list([Year],[Movie],ListDict) :-
-        getActors(Movie, ActorsList),
-        findall(Genre, genre(Movie, Genre), GenresList),
-        findall(Director, director(Movie, Director), [Director|_]),
-        ListDict = [_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}].
-list_to_dict_list([Year|YearList], [Movie|MovieList], ListDict) :-
-        list_to_dict_list(YearList, MovieList, Temp),
-        getActors(Movie, ActorsList),
-        findall(Genre, genre(Movie, Genre), GenresList),
-        findall(Director, director(Movie, Director), [Director|_]),
-        append([_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}], Temp, ListDict).
-
 
 assert_movie(_{name:MovieName, year:MovieYear}, DictOut) :-
         assert(movie(MovieName, MovieYear)),

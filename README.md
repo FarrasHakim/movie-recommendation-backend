@@ -1,22 +1,24 @@
 # Movie Recommendation API Service
+
 Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata kuliah Pemrograman Logika. Proyek ini berperan sebagai service yang menyediakan data movie yang akan digunakan oleh sebuah frontend framework.
 
 #### How to run
+
 1. Clone proyek
 2. Pastikan swi-prolog sudah terinstall
 3. Buka cmd/terminal di folder 'movie-recommendaiton-backend'
-4. Jalankan `swipl web-service.pl`
-5. SWI-Prolog akan berjalan di cmd/terminal
-6. Jalankan syntax `server(<port>)`
-7. Website dapat diakses melalui browser dengan alamat url `localhost:<port>` 
+4. Jalankan `swipl -g "server(8000)" web-service.pl`
+5. Website dapat diakses melalui browser dengan alamat url `localhost:<port>`
 
 #### Contoh request yang dapat dijalankan
+
 1. "Get" Movies
-   
+
    Endpoint-URL: `GET /movies`\
    Input: **Null**
 
    Output:
+
    ```
    {
        "list":[
@@ -32,9 +34,10 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
 
 2. Add Number
-   
+
    Endpoint-URL: `POST /add`\
    Input:
+
    ```
    {
        "a": 12,
@@ -43,17 +46,20 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
    ```
 
    Output:
+
    ```
    {
       "answer": 25
    }
    ```
+
 3. Get Movies By Year
-   
+
    Endpoint-URL: `GET /movies/filter-by-year?year=1999`\
    Input: **NULL**
 
    Output:
+
    ```
    {
     "list": [
@@ -65,12 +71,14 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         ]
     }
    ```
+
 4. Get Movies By Name
-   
+
    Endpoint-URL: `GET /movies/detail?name=american_beauty`\
    Input:**NULL**
 
    Output:
+
    ```
    {
     "actors": [
@@ -120,12 +128,14 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         "year": 1999
     }
    ```
+
 5. Get Movie Genres
-   
+
    Endpoint-URL: `GET /movies/genres/`\
    Input: **Null**
 
    Output:
+
    ```
    {
     "list": [
@@ -153,12 +163,14 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         ]
     }
    ```
+
 6. "Get" Movies by Genre
-   
+
    Endpoint-URL: `GET /movies/by-genre?genre=scifi`\
    Input: **NULL**
 
    Output:
+
    ```
    {
     "list": [
@@ -171,12 +183,14 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         ]
     }
    ```
+
 7. Get Movies List Sorted By Year
-   
+
    Endpoint-URL: `GET /movies/sort-by-year/`\
    Input: **NULL**
 
    Output:
+
    ```
    {
     "list": [
