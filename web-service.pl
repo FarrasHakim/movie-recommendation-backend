@@ -28,6 +28,7 @@ http:location(food, '/food', []).
 :- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
 :- http_handler('/movies/detail', get_movie_by_name, []).
 :- http_handler('/movies/detail/', get_movie_by_name, []).
+:- http_handler('/movies/genres', get_genres, []).
 :- http_handler('/movies/genres/', get_genres, []).
 :- http_handler('/movies/by-genre', get_movies_by_genre, []).
 :- http_handler('/movies/by-genre/', get_movies_by_genre, []).

@@ -51,6 +51,8 @@ Part 2: Add rules to the database to do the following,
 :- discontiguous
         movie/2,
         director/2,
+        description/2,
+        poster/2,
         genre/2,
         actor/3,
         actress/3.
@@ -65,6 +67,8 @@ Part 2: Add rules to the database to do the following,
 movie(american_beauty, 1999).
 genre(american_beauty, comedy).
 genre(american_beauty, drama).
+description(american_beauty, "A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.").
+poster(american_beauty, "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg").
 director(american_beauty, sam_mendes).
 actor(american_beauty, kevin_spacey, lester_burnham).
 actress(american_beauty, annette_bening, carolyn_burnham).
@@ -105,6 +109,8 @@ actress(american_beauty, erin_cathryn_strubbe, young_jane_burnham).
 actress(american_beauty, elaine_corral_kendall, newscaster).
 
 movie(anna, 1987).
+description(anna, "Anna is a middle-aged actress looking for work in New York City, with the help of her sometime lover, Daniel. She used to be a Czech film star married to the director Tonda, who is now successfully making commercials in New York. After the 1968 invasion of Czechoslovakia, Anna was imprisoned and eventually exiled. Anna takes in the young girl Krystyna, who has just arrived from Czechoslovakia, and speaks no English. Anna and Daniel help Krystyna learn English and start a promising acting career. However, the only job Anna can find is as an understudy.").
+poster(anna, "https://m.media-amazon.com/images/M/MV5BM2M4OGUyYWEtYmMyNi00ZmI0LWFlNDEtMzE0NjRmOWUwMjA0XkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(anna, drama).
 director(anna, yurek_bogayevicz).
 actress(anna, sally_kirkland, anna).
@@ -143,6 +149,8 @@ actor(anna, theo_mayes, dancing_dishwasher).
 actress(anna, nina_port, dancing_dishwasher).
 
 movie(barton_fink, 1991).
+description(barton_fink ,"A renowned New York playwright is enticed to California to write for the movies and discovers the hellish truth of Hollywood.").
+poster(barton_fink ,"https://m.media-amazon.com/images/M/MV5BMTgxMDMxMTctNDY0Zi00ZmNlLWFlYmQtODA2YjY4MDk4MjU1XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(barton_fink, comedy).
 genre(barton_fink, thriller).
 genre(barton_fink, drama).
@@ -175,6 +183,8 @@ actress(barton_fink, isabelle_townsend, beauty).
 actor(barton_fink, william_preston_robertson, voice).
 
 movie(the_big_lebowski, 1998).
+description(the_big_lebowski ,'Jeff "The Dude" Lebowski, mistaken for a millionaire of the same name, seeks restitution for his ruined rug and enlists his bowling buddies to help get it.').
+poster(the_big_lebowski ,"https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_big_lebowski, comedy).
 genre(the_big_lebowski, crime).
 genre(the_big_lebowski, sport).
@@ -226,6 +236,8 @@ actress(the_big_lebowski, robin_jones, checker_at_ralph_s).
 actor(the_big_lebowski, paris_themmen, '').
 
 movie(blade_runner, 1997).
+description(blade_runner ,"Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.").
+poster(blade_runner ,"https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(blade_runner, action).
 genre(blade_runner, adventure).
 director(blade_runner, joseph_d_kucan).
@@ -289,6 +301,8 @@ actress(blade_runner, sean_young, rachael).
 actor(blade_runner, joe_tippy_zeoli, officer_grayford).
 
 movie(blood_simple, 1984).
+description(blood_simple ,"The owner of a seedy small-town Texas bar discovers that one of his employees is having an affair with his wife. A chaotic chain of misunderstandings, lies and mischief ensues after he devises a plot to have them murdered.").
+poster(blood_simple ,"https://m.media-amazon.com/images/M/MV5BZmI5YzM1MjItMzFmNy00NGFkLThlMDUtZjZmYTZkM2QxMjU3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(blood_simple, crime).
 genre(blood_simple, drama).
 genre(blood_simple, thriller).
@@ -313,6 +327,8 @@ actress(blood_simple, holly_hunter, helene_trend).
 actor(blood_simple, barry_sonnenfeld, marty_s_vomiting).
 
 movie(the_cotton_club, 1984).
+description(the_cotton_club ,"Meet the jazz musicians, dancers, owner and guests (e.g. gangster Dutch Schultz) of The Cotton Club in 1928-30s Harlem.").
+poster(the_cotton_club ,"https://m.media-amazon.com/images/M/MV5BMWU2NGMxNTctNDc4MC00ZTdkLTlhYjItMTRjMmMxZDBjZTMwXkEyXkFqcGdeQXVyNDkzNTM2ODg@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_cotton_club, crime).
 genre(the_cotton_club, drama).
 genre(the_cotton_club, music).
@@ -463,6 +479,8 @@ actor(the_cotton_club, stan_tracy, legs_diamond_s_bodyguard).
 actor(the_cotton_club, rick_washburn, hitman).
 
 movie(cq, 2001).
+description(cq ,"A young filmmaker in 1960s Paris juggles directing a cheesy sci-fi debacle, directing his own personal art film, coping with his crumbling relationship with his girlfriend, and a new-found infatuation with the sci-fi film's starlet.").
+poster(cq ,"https://m.media-amazon.com/images/M/MV5BMjIyMzcyNDE4MV5BMl5BanBnXkFtZTcwMDgwNTIzNA@@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(cq, drama).
 genre(cq, comedy).
 genre(cq, scifi).
@@ -525,6 +543,8 @@ actor(cq, chris_anthony, second_assistant_director).
 actor(cq, dean_tavoularis, man_at_screening).
 
 movie(crimewave, 1985).
+description(crimewave ,"A pair of whacked-out cartoon-like exterminator/hitmen kill the owner of a burglar-alarm company, and stalk the partner who hired them, his wife, and a nerd framed for the murder, who tells the story in flashback from the electric chair.").
+poster(crimewave ,"https://m.media-amazon.com/images/M/MV5BNmMxZjdkOTgtZDhkZi00M2U5LThiOGUtMjA1NGQzNTk4NWI1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjQxNTI2Mzg@._V1_UY268_CR8,0,182,268_AL_.jpg").
 genre(crimewave, comedy).
 genre(crimewave, crime).
 genre(crimewave, horror).
@@ -567,6 +587,8 @@ actress(crimewave, julie_harris, '').
 actor(crimewave, dan_nelson, waiter).
 
 movie(down_from_the_mountain, 2000).
+description(down_from_the_mountain ,"This is a documentary about the musical artists who performed the songs in the Coen Brothers' film O Brother, Where Art Thou?").
+poster(down_from_the_mountain ,"https://m.media-amazon.com/images/M/MV5BMjA0MDI5MDE4MV5BMl5BanBnXkFtZTcwODU4OTIyMQ@@._V1_UY268_CR1,0,182,268_AL_.jpg").
 genre(down_from_the_mountain, documentary).
 genre(down_from_the_mountain, music).
 director(down_from_the_mountain, nick_doob).
@@ -617,6 +639,8 @@ actor(down_from_the_mountain, wes_motley, audience_member).
 actress(down_from_the_mountain, tamara_trexler, audience_member).
 
 movie(fargo, 1996).
+description(fargo ,"Jerry Lundegaard's inept crime falls apart due to his and his henchmen's bungling and the persistent police work of the quite pregnant Marge Gunderson.").
+poster(fargo ,"https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(fargo, crime).
 genre(fargo, drama).
 genre(fargo, thriller).
@@ -664,6 +688,8 @@ actor(fargo, bruce_campbell, soap_opera_actor).
 actor(fargo, clifford_nelson, heavyset_man_in_bar).
 
 movie(the_firm, 1993).
+description(the_firm ,"A young lawyer joins a prestigious law firm only to discover that it has a sinister dark side.").
+poster(the_firm ,"https://m.media-amazon.com/images/M/MV5BMTgxMjM5NDYwM15BMl5BanBnXkFtZTgwODkzMzk5MDE@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_firm, drama).
 genre(the_firm, mystery).
 genre(the_firm, thriller).
@@ -735,6 +761,8 @@ actor(the_firm, paul_sorvino, tommie_morolto).
 actor(the_firm, joe_viterelli, joey_morolto).
 
 movie(frankenweenie, 1984).
+description(frankenweenie ,"A young boy sets out to revive his dead pet using the monstrous power of science.").
+poster(frankenweenie ,"https://m.media-amazon.com/images/M/MV5BNDMxODAyNjQ0MV5BMl5BanBnXkFtZTgwMzY0ODk1MDE@._V1_UY268_CR9,0,182,268_AL_.jpg").
 genre(frankenweenie, short).
 genre(frankenweenie, comedy).
 genre(frankenweenie, drama).
@@ -754,6 +782,8 @@ actor(frankenweenie, sparky, sparky).
 actor(frankenweenie, rusty_james, raymond).
 
 movie(ghost_busters, 1984).
+description(ghost_busters ,"Three former parapsychology professors set up shop as a unique ghost removal service.").
+poster(ghost_busters ,"https://m.media-amazon.com/images/M/MV5BMTkxMjYyNzgwMl5BMl5BanBnXkFtZTgwMTE3MjYyMTE@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(ghost_busters, action).
 genre(ghost_busters, comedy).
 genre(ghost_busters, fantasy).
@@ -824,6 +854,8 @@ actor(ghost_busters, mario_todisco, prisoner).
 actor(ghost_busters, bill_walton, himself).
 
 movie(girl_with_a_pearl_earring, 2003).
+description(girl_with_a_pearl_earring ,"A young peasant maid working in the house of painter Johannes Vermeer becomes his talented assistant and the model for one of his most famous works.").
+poster(girl_with_a_pearl_earring ,"https://m.media-amazon.com/images/M/MV5BOTU3NTg5NDYtNWNkMC00ODZiLTljZjQtNjZhNjlhNjZiNDBlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(girl_with_a_pearl_earring, biography).
 genre(girl_with_a_pearl_earring, drama).
 genre(girl_with_a_pearl_earring, romance).
@@ -862,6 +894,8 @@ actor(girl_with_a_pearl_earring, chris_kelly, gay_blade).
 actor(girl_with_a_pearl_earring, leslie_woodhall, neighbour).
 
 movie(the_godfather, 1972).
+description(the_godfather ,"An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son.").
+poster(the_godfather ,"https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg").
 genre(the_godfather, crime).
 genre(the_godfather, drama).
 director(the_godfather, francis_ford_coppola).
@@ -925,6 +959,8 @@ actor(the_godfather, ed_vantura, wedding_guest).
 actor(the_godfather, matthew_vlahakis, clemenza_s_son_pushing_toy_car_in_driveway).
 
 movie(the_godfather_part_ii, 1974).
+description(the_godfather_part_ii ,"The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.").
+poster(the_godfather_part_ii ,"https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg").
 genre(the_godfather_part_ii, crime).
 genre(the_godfather_part_ii, drama).
 director(the_godfather_part_ii, francis_ford_coppola).
@@ -1008,6 +1044,8 @@ actor(the_godfather_part_ii, frank_pesce, extra).
 actress(the_godfather_part_ii, filomena_spagnuolo, extra_in_little_italy).
 
 movie(the_godfather_part_iii, 1990).
+description(the_godfather_part_iii ,"Follows Michael Corleone, now in his 60s, as he seeks to free his family from crime and find a suitable successor to his empire.").
+poster(the_godfather_part_iii ,"https://m.media-amazon.com/images/M/MV5BNWFlYWY2YjYtNjdhNi00MzVlLTg2MTMtMWExNzg4NmM5NmEzXkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_godfather_part_iii, crime).
 genre(the_godfather_part_iii, drama).
 director(the_godfather_part_iii, francis_ford_coppola).
@@ -1094,6 +1132,8 @@ actor(the_godfather_part_iii, lee_strasberg, hyman_roth_stukowski).
 actor(the_godfather_part_iii, f_x_vitolo, pasquale).
 
 movie(groundhog_day, 1993).
+description(groundhog_day ,"A weatherman finds himself inexplicably living the same day over and over again.").
+poster(groundhog_day ,"https://m.media-amazon.com/images/M/MV5BZWIxNzM5YzQtY2FmMS00Yjc3LWI1ZjUtNGVjMjMzZTIxZTIxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(groundhog_day, comedy).
 genre(groundhog_day, fantasy).
 genre(groundhog_day, romance).
@@ -1156,7 +1196,9 @@ actress(groundhog_day, regina_prokop, polka_dancer).
 actor(groundhog_day, daniel_riggs, bachelor).
 actor(groundhog_day, paul_terrien, groundhog_official).
 
-movie(hail_caesar, 2006).
+movie(hail_caesar, 2016).
+description(hail_caesar ,"A Hollywood fixer in the 1950s works to keep the studio's stars in line.").
+poster(hail_caesar ,"https://m.media-amazon.com/images/M/MV5BOTI1M2FlMzItY2VjYS00Y2VkLWI5OTQtMzA0MWMyNmQzZmQ0XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(hail_caesar, comedy).
 genre(hail_caesar, mystery).
 director(hail_caesar, ethan_coen).
@@ -1178,6 +1220,8 @@ actress(hail_caesar, 'Scarlett Johansson', 'DeeAnna Moran').
 actress(hail_caesar, 'Tilda Swinton', 'Thora Thacker').
 
 movie(hearts_of_darkness_a_filmmaker_s_apocalypse, 1991).
+description(hearts_of_darkness_a_filmmaker_s_apocalypse ,"Documentary that chronicles how Francis Ford Coppola's Apocalypse Now (1979) was plagued by extraordinary script, shooting, budget, and casting problems--nearly destroying the life and career of the celebrated director.").
+poster(hearts_of_darkness_a_filmmaker_s_apocalypse ,"https://m.media-amazon.com/images/M/MV5BNWQxZTQ4OTItNTdmNS00NGY0LTg5NDAtZjViMjQ2ODg3ZGFhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY268_CR1,0,182,268_AL_.jpg").
 genre(hearts_of_darkness_a_filmmaker_s_apocalypse, documentary).
 director(hearts_of_darkness_a_filmmaker_s_apocalypse, fax_bahr).
 director(hearts_of_darkness_a_filmmaker_s_apocalypse, eleanor_coppola).
@@ -1204,6 +1248,8 @@ actor(hearts_of_darkness_a_filmmaker_s_apocalypse, g_d_spradlin, himself).
 actor(hearts_of_darkness_a_filmmaker_s_apocalypse, orson_welles, himself_from_1938_radio_broadcast).
 
 movie(the_hudsucker_proxy, 1994).
+description(the_hudsucker_proxy ,"A naive business graduate is installed as president of a manufacturing company as part of a stock scam.").
+poster(the_hudsucker_proxy ,"https://m.media-amazon.com/images/M/MV5BMzNkYzI4ZTYtZjJlZC00ZTVjLTk2MDYtYWMwODA0NmFiYTIwXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_hudsucker_proxy, comedy).
 genre(the_hudsucker_proxy, drama).
 genre(the_hudsucker_proxy, fantasy).
@@ -1292,6 +1338,8 @@ actor(the_hudsucker_proxy, jack_rooney, man_at_merchandise_mart).
 actor(the_hudsucker_proxy, keith_schrader, businessman).
 
 movie(inside_monkey_zetterland, 1992).
+description(inside_monkey_zetterland ,"An off beat comedy about an out of work screen writing/artist that complains about being too cool, too talented and way too gay.").
+poster(inside_monkey_zetterland ,"https://m.media-amazon.com/images/M/MV5BMTA3NDc3OTg1MzFeQTJeQWpwZ15BbWU3MDAyMDExNDE@._V1_UY268_CR43,0,182,268_AL_.jpg").
 genre(inside_monkey_zetterland, comedy).
 director(inside_monkey_zetterland, jefery_levy).
 actor(inside_monkey_zetterland, steve_antin, monkey_zetterland).
@@ -1315,6 +1363,8 @@ actress(inside_monkey_zetterland, vivian_schilling, network_producer).
 actress(inside_monkey_zetterland, blair_tefkin, brent_s_assistant).
 
 movie(intolerable_cruelty, 2003).
+description(intolerable_cruelty ,"A beautiful gold digger matches wits with a shrewd Beverly Hills divorce lawyer who is increasingly attracted to her.").
+poster(intolerable_cruelty ,"https://m.media-amazon.com/images/M/MV5BMTU2OTc5Mjc0N15BMl5BanBnXkFtZTYwMDYyMjg3._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(intolerable_cruelty, comedy).
 genre(intolerable_cruelty, crime).
 genre(intolerable_cruelty, romance).
@@ -1372,6 +1422,8 @@ actor(intolerable_cruelty, larry_vigus, lawyer).
 actress(intolerable_cruelty, susan_yeagley, tart_1).
 
 movie(the_ladykillers, 2004).
+description(the_ladykillers ,"An eccentric, if not charming Southern professor and his crew pose as a classical ensemble in order to rob a casino, all under the nose of his unsuspecting but sharp old landlady.").
+poster(the_ladykillers ,"https://m.media-amazon.com/images/M/MV5BMTYwNjUxMTYzM15BMl5BanBnXkFtZTYwNjgwMjY3._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_ladykillers, comedy).
 genre(the_ladykillers, crime).
 genre(the_ladykillers, thriller).
@@ -1417,6 +1469,8 @@ actor(the_ladykillers, bruce_campbell, humane_society_worker).
 actor(the_ladykillers, michael_dotson, angry_football_fan).
 
 movie(lick_the_star, 1998).
+description(lick_the_star ,'A clique of school girls devise a secret plan that they code-name "Lick the Star".').
+poster(lick_the_star ,"https://m.media-amazon.com/images/M/MV5BYzhjZGRiMTAtMzM0MS00NTEzLTgzN2ItMWE1YWI2NzkyYWM1XkEyXkFqcGdeQXVyNDExODQzNDA@._V1_UY268_CR9,0,182,268_AL_.jpg").
 genre(lick_the_star, drama).
 genre(lick_the_star, short).
 director(lick_the_star, sofia_coppola).
@@ -1437,6 +1491,8 @@ actor(lick_the_star, anthony_desimone, snack_counter_victim).
 actor(lick_the_star, aron_acord, sexy_boy).
 
 movie(lost_in_translation, 2003).
+description(lost_in_translation ,"A faded movie star and a neglected young woman form an unlikely bond after crossing paths in Tokyo.").
+poster(lost_in_translation ,"https://m.media-amazon.com/images/M/MV5BMTUxMzk0NDg1MV5BMl5BanBnXkFtZTgwNDg0NjkxMDI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(lost_in_translation, comedy).
 genre(lost_in_translation, drama).
 director(lost_in_translation, sofia_coppola).
@@ -1493,6 +1549,8 @@ actress(lost_in_translation, lisle_wilkerson, sexy_businesswoman).
 actress(lost_in_translation, nancy_steiner, lydia_harris).
 
 movie(the_man_who_wasn_t_there, 2001).
+description(the_man_who_wasn_t_there ,"A laconic, chain-smoking barber blackmails his wife's boss and lover for money to invest in dry cleaning, but his plan goes terribly wrong.").
+poster(the_man_who_wasn_t_there ,"https://m.media-amazon.com/images/M/MV5BYjEwMGZkYTgtMTA5Ny00OWFhLTgzMWItYjhhMWUxYTIxNDgwXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_man_who_wasn_t_there, crime).
 genre(the_man_who_wasn_t_there, drama).
 director(the_man_who_wasn_t_there, ethan_coen).
@@ -1558,6 +1616,8 @@ actor(the_man_who_wasn_t_there, peter_schrum, truck_driver).
 actor(the_man_who_wasn_t_there, max_thayer, witness).
 
 movie(marie_antoinette, 2006).
+description(marie_antoinette ,"The retelling of France's iconic but ill-fated queen, Marie Antoinette. From her betrothal and marriage to Louis XVI at 15 to her reign as queen at 19 and to the end of her reign as queen, and ultimately the fall of Versailles.").
+poster(marie_antoinette ,"https://m.media-amazon.com/images/M/MV5BNjBjZmNkNjYtYjI0Mi00NjhlLTk5MWItOTA2YzM4MzhhYzFmXkEyXkFqcGdeQXVyMTAwMzUyMzUy._V1_UY268_CR7,0,182,268_AL_.jpg").
 genre(marie_antoinette, biography).
 genre(marie_antoinette, drama).
 genre(marie_antoinette, history).
@@ -1600,6 +1660,8 @@ actress(marie_antoinette, mary_nighy, '').
 actor(marie_antoinette, al_weaver, '').
 
 movie(miller_s_crossing, 1990).
+description(miller_s_crossing ,"Tom Reagan, an advisor to a Prohibition-era crime boss, tries to keep the peace between warring mobs but gets caught in divided loyalties.").
+poster(miller_s_crossing ,"https://m.media-amazon.com/images/M/MV5BMTY2Njk3MTAzM15BMl5BanBnXkFtZTgwMTY5Mzk4NjE@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(miller_s_crossing, crime).
 genre(miller_s_crossing, drama).
 genre(miller_s_crossing, thriller).
@@ -1650,6 +1712,8 @@ actor(miller_s_crossing, william_preston_robertson, voice).
 actress(miller_s_crossing, frances_mcdormand, mayor_s_secretary).
 
 movie(mission_impossible, 1996).
+description(mission_impossible ,"An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.").
+poster(mission_impossible ,"https://m.media-amazon.com/images/M/MV5BMTc3NjI2MjU0Nl5BMl5BanBnXkFtZTgwNDk3ODYxMTE@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(mission_impossible, action).
 genre(mission_impossible, adventure).
 genre(mission_impossible, thriller).
@@ -1707,6 +1771,8 @@ actor(mission_impossible, emilio_estevez, jack_harmon).
 actor(mission_impossible, john_knoll, passenger_on_train_in_tunnel).
 
 movie(no_country_for_old_men, 2007).
+description(no_country_for_old_men ,"Violence and mayhem ensue after a hunter stumbles upon a drug deal gone wrong and more than two million dollars in cash near the Rio Grande.").
+poster(no_country_for_old_men ,"https://m.media-amazon.com/images/M/MV5BMjA5Njk3MjM4OV5BMl5BanBnXkFtZTcwMTc5MTE1MQ@@._V1_UY268_CR0,0,182,268_AL_.jpg").
 genre(no_country_for_old_men, crime).
 genre(no_country_for_old_men, drama).
 genre(no_country_for_old_men, thriller).
@@ -1728,6 +1794,8 @@ actor(no_country_for_old_men, 'Javier Bardem', 'Anton Chigurh').
 actor(no_country_for_old_men, 'Tommy Lee Jones', 'Ed Tom Bell').
 
 movie(o_brother_where_art_thou, 2000).
+description(o_brother_where_art_thou ,"In the deep south during the 1930s, three escaped convicts search for hidden treasure while a relentless lawman pursues them.").
+poster(o_brother_where_art_thou ,"https://m.media-amazon.com/images/M/MV5BMjZkOTdmMWItOTkyNy00MDdjLTlhNTQtYzU3MzdhZjA0ZDEyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(o_brother_where_art_thou, adventure).
 genre(o_brother_where_art_thou, comedy).
 genre(o_brother_where_art_thou, crime).
@@ -1786,6 +1854,8 @@ actor(o_brother_where_art_thou, geoffrey_gould, head_of_mob).
 actor(o_brother_where_art_thou, nathaniel_lee_jr, ice_boy_on_the_right_straw_hat).
 
 movie(the_outsiders, 1983).
+description(the_outsiders ,"The rivalry between two gangs, the poor Greasers and the rich Socs, only heats up when one gang member kills a member of the other.").
+poster(the_outsiders ,"https://m.media-amazon.com/images/M/MV5BY2E4Njk4N2UtZWFhOS00NzczLWFmNDgtMzdhMjFlNTZjMmVhL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_outsiders, drama).
 genre(the_outsiders, crime).
 director(the_outsiders, francis_ford_coppola).
@@ -1817,6 +1887,8 @@ actor(the_outsiders, daniel_r_suhart, orderly).
 actress(the_outsiders, heather_langenkamp, '').
 
 movie(paris_je_t_aime, 2006).
+description(paris_je_t_aime ,"Through the neighborhoods of Paris, love is veiled, revealed, imitated, sucked dry, reinvented and awakened.").
+poster(paris_je_t_aime ,"https://m.media-amazon.com/images/M/MV5BMTc1MDgwNDE4MF5BMl5BanBnXkFtZTcwMTQzMzc0MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(paris_je_t_aime, comedy).
 genre(paris_je_t_aime, romance).
 genre(paris_je_t_aime, drama).
@@ -1869,6 +1941,8 @@ actor(paris_je_t_aime, seydou_boro, hassan_segment_19th_arrondissement).
 actress(paris_je_t_aime, a_ssa_ma_ga, sophie_segment_19th_arrondissement).
 
 movie(peggy_sue_got_married, 1986).
+description(peggy_sue_got_married ,"Peggy Sue faints at a high school reunion. When she wakes up, she finds herself in her own past, just before she finished school.").
+poster(peggy_sue_got_married ,"https://m.media-amazon.com/images/M/MV5BYjg2MzE1MzQtZDY2My00YzU2LThjNmMtODY5YTU5ZDQ2MzAzXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(peggy_sue_got_married, comedy).
 genre(peggy_sue_got_married, drama).
 genre(peggy_sue_got_married, fantasy).
@@ -1928,6 +2002,8 @@ actor(peggy_sue_got_married, michael_x_martin, '').
 actress(peggy_sue_got_married, mary_mitchel, '').
 
 movie(raising_arizona, 1987).
+description(raising_arizona ,"When a childless couple of an ex-con and an ex-cop decide to help themselves to one of another family's quintuplets, their lives become more complicated than they anticipated.").
+poster(raising_arizona ,"https://m.media-amazon.com/images/M/MV5BOGUwZTEwZTYtZmQ0OS00NmM1LWE2ZTQtNjZiYmE4ZmUxMjk1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(raising_arizona, comedy).
 genre(raising_arizona, crime).
 director(raising_arizona, ethan_coen).
@@ -1992,6 +2068,8 @@ actor(raising_arizona, william_preston_robertson, amazing_voice).
 actor(raising_arizona, ron_francis_cobert, reporter_1).
 
 movie(rumble_fish, 1983).
+description(rumble_fish ,"Absent-minded street thug Rusty James struggles to live up to his legendary older brother's reputation, and longs for the days of gang warfare.").
+poster(rumble_fish ,"https://m.media-amazon.com/images/M/MV5BYjVkNjczZDEtZGQyZS00ZWUyLWFmMzctMzE5YjM1YTczZTE3L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(rumble_fish, crime).
 genre(rumble_fish, drama).
 genre(rumble_fish, romance).
@@ -2028,6 +2106,8 @@ actress(rumble_fish, kristi_somers, lake_girl_5).
 actress(rumble_fish, heather_langenkamp, '').
 
 movie(spies_like_us, 1985).
+description(spies_like_us ,"Two bumbling government employees think they are U.S. spies, only to discover that they are actually decoys for Nuclear War.").
+poster(spies_like_us ,"https://m.media-amazon.com/images/M/MV5BYWE0NmZiNDktODFjMi00NzA4LWI2ZTEtN2M2OWU5ZDQ5YzBhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(spies_like_us, adventure).
 genre(spies_like_us, comedy).
 director(spies_like_us, john_landis).
@@ -2088,6 +2168,8 @@ actor(spies_like_us, edwin_newman, himself).
 actress(spies_like_us, nancy_gair, student).
 
 movie(star_wars_episode_i__the_phantom_menace, 1999).
+description(star_wars_episode_i__the_phantom_menace ,"Two Jedi escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to claim their original glory.").
+poster(star_wars_episode_i__the_phantom_menace ,"https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(star_wars_episode_i__the_phantom_menace, action).
 genre(star_wars_episode_i__the_phantom_menace, adventure).
 genre(star_wars_episode_i__the_phantom_menace, fantasy).
@@ -2185,6 +2267,8 @@ actor(star_wars_episode_i__the_phantom_menace, matthew_wood, bib_fortuna_voice_o
 actor(star_wars_episode_i__the_phantom_menace, bob_woods, naboo_courier).
 
 movie(torrance_rises, 1999).
+description(torrance_rises ,"A mockumentary chronicling the Torrance Community Dance Group (from Fatboy Slim's "Praise You" video) on their road to the MTV Video Music Awards.").
+poster(torrance_rises ,"https://m.media-amazon.com/images/M/MV5BMjY3NTQ3MDgtYWZjYy00NWE1LTg0OWUtNGMyYmE4NTkxYzE5XkEyXkFqcGdeQXVyNTk5Nzg1NjQ@._V1_UY268_CR96,0,182,268_AL_.jpg").
 genre(torrance_rises, comedy).
 genre(torrance_rises, short).
 director(torrance_rises, lance_bangs).
@@ -2223,6 +2307,8 @@ actor(torrance_rises, tim_szczepanski, himself).
 actress(torrance_rises, michelle_weber, herself).
 
 movie(the_usual_suspects, 1995).
+description(the_usual_suspects ,"A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, which began when five criminals met at a seemingly random police lineup.").
+poster(the_usual_suspects ,"https://m.media-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_usual_suspects, crime).
 genre(the_usual_suspects, mystery).
 genre(the_usual_suspects, thriller).
@@ -2265,6 +2351,8 @@ actor(the_usual_suspects, christopher_mcquarrie, interrogation_cop).
 actor(the_usual_suspects, scott_b_morgan, keyser_s_ze_in_flashback).
 
 movie(the_virgin_suicides, 1999).
+description(the_virgin_suicides ,"A group of male friends become obsessed with five mysterious sisters who are sheltered by their strict, religious parents in suburban Detroit in the mid 1970s.").
+poster(the_virgin_suicides ,"https://m.media-amazon.com/images/M/MV5BNTMyMjI3MmItODIzNS00OWNiLWE5NTQtYmNhNGNlOTYyYWExXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(the_virgin_suicides, drama).
 genre(the_virgin_suicides, romance).
 director(the_virgin_suicides, sofia_coppola).
@@ -2335,6 +2423,8 @@ actress(the_virgin_suicides, mandy_lee_jones, student).
 actor(the_virgin_suicides, giovanni_ribisi, narrator).
 
 movie(an_american_rhapsody, 2001).
+description(an_american_rhapsody ,"A young Hungarian girl struggles to find her place in the world when she's reunited with her parents in the USA years after she was left behind during their flight from the communist country in the 1950s.").
+poster(an_american_rhapsody ,"https://m.media-amazon.com/images/M/MV5BYmI3MTkwOWQtMmY2OC00ZDAzLTlkNDAtZTJjYWJkNWI0Njc3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg").
 genre(an_american_rhapsody, drama).
 director(an_american_rhapsody, va_g_rdos).
 actress(an_american_rhapsody, scarlett_johansson, suzanne_sandor_at_15).
@@ -2379,6 +2469,8 @@ actress(an_american_rhapsody, va_g_rdos, suzanne_sandor_in_family_picture_age_6)
 actor(an_american_rhapsody, peter_janosi, german_customs_officer).
 
 movie(the_black_dahlia, 2006).
+description(the_black_dahlia ,"").
+poster(the_black_dahlia ,"").
 genre(the_black_dahlia, crime).
 genre(the_black_dahlia, drama).
 genre(the_black_dahlia, mystery).
@@ -2419,6 +2511,8 @@ actor(the_black_dahlia, joey_slotnick, '').
 actor(the_black_dahlia, mike_starr, russ_millard).
 
 movie(fall, 1997).
+description(fall ,"").
+poster(fall ,"").
 genre(fall, drama).
 genre(fall, romance).
 director(fall, eric_schaeffer).
@@ -2444,6 +2538,8 @@ actor(fall, evan_thompson, priest).
 actor(fall, larry_weiss, paparazzi).
 
 movie(eight_legged_freaks, 2002).
+description(eight_legged_freaks ,"").
+poster(eight_legged_freaks ,"").
 genre(eight_legged_freaks, action).
 genre(eight_legged_freaks, adventure).
 genre(eight_legged_freaks, comedy).
@@ -2477,6 +2573,8 @@ actor(eight_legged_freaks, bruiser, himself).
 actor(eight_legged_freaks, tom_noonan, joshua_taft).
 
 movie(ghost_world, 2000).
+description(ghost_world ,"").
+poster(ghost_world ,"").
 genre(ghost_world, comedy).
 genre(ghost_world, drama).
 director(ghost_world, terry_zwigoff).
@@ -2554,6 +2652,8 @@ actress(ghost_world, michelle_marie_white, mom_in_convenience_store).
 actor(ghost_world, peter_yarrow, himself).
 
 movie(a_good_woman, 2004).
+description(a_good_woman ,"").
+poster(a_good_woman ,"").
 genre(a_good_woman, drama).
 genre(a_good_woman, comedy).
 genre(a_good_woman, romance).
@@ -2583,6 +2683,8 @@ actress(a_good_woman, camilla_bertocci, stella_s_maid_2).
 actress(a_good_woman, nichola_aigner, mrs_gowper).
 
 movie(if_lucy_fell, 1996).
+description(if_lucy_fell ,"").
+poster(if_lucy_fell ,"").
 genre(if_lucy_fell, comedy).
 genre(if_lucy_fell, romance).
 director(if_lucy_fell, eric_schaeffer).
@@ -2612,6 +2714,8 @@ actor(if_lucy_fell, brian_keane, man_in_gallery).
 actress(if_lucy_fell, amanda_kravat, woman_in_park).
 
 movie(home_alone_3, 1997).
+description(home_alone_3 ,"").
+poster(home_alone_3 ,"").
 genre(home_alone_3, action).
 genre(home_alone_3, comedy).
 genre(home_alone_3, crime).
@@ -2652,6 +2756,8 @@ actor(home_alone_3, zachary_lee, johnny_allen).
 actress(home_alone_3, kelly_ann_marquart, girl_on_sidewalk).
 
 movie(the_horse_whisperer, 1998).
+description(the_horse_whisperer ,"").
+poster(the_horse_whisperer ,"").
 genre(the_horse_whisperer, drama).
 genre(the_horse_whisperer, romance).
 genre(the_horse_whisperer, western).
@@ -2695,6 +2801,8 @@ actor(the_horse_whisperer, donnie_saylor, rugged_cowboy).
 actor(the_horse_whisperer, george_strait, himself).
 
 movie(in_good_company, 2004).
+description(in_good_company ,"").
+poster(in_good_company ,"").
 genre(in_good_company, comedy).
 genre(in_good_company, drama).
 genre(in_good_company, romance).
@@ -2751,6 +2859,8 @@ actress(in_good_company, loretta_shenosky, kalb_s_assistant).
 actor(in_good_company, trevor_stynes, man_on_street).
 
 movie(just_cause, 1995).
+description(just_cause ,"").
+poster(just_cause ,"").
 genre(just_cause, action).
 genre(just_cause, crime).
 genre(just_cause, drama).
@@ -2815,6 +2925,8 @@ actor(just_cause, michael_sassano, courtroom_observer).
 actor(just_cause, rene_teboe, man_in_bus_terminal).
 
 movie(the_island, 2005).
+description(the_island ,"").
+poster(the_island ,"").
 genre(the_island, action).
 genre(the_island, scifi).
 genre(the_island, thriller).
@@ -2897,6 +3009,8 @@ actor(the_island, skyler_stone, sarah_jordan_s_husband).
 actor(the_island, richard_john_walters, agnate).
 
 movie(a_love_song_for_bobby_long, 2004).
+description(a_love_song_for_bobby_long ,"").
+poster(a_love_song_for_bobby_long ,"").
 genre(a_love_song_for_bobby_long, drama).
 director(a_love_song_for_bobby_long, shainee_gabel).
 actor(a_love_song_for_bobby_long, john_travolta, bobby_long).
@@ -2925,6 +3039,8 @@ actor(a_love_song_for_bobby_long, sal_sapienza, jazz_club_patron).
 actor(a_love_song_for_bobby_long, doc_whitney, alcoholic).
 
 movie(manny__lo, 1996).
+description(manny__lo ,"").
+poster(manny__lo ,"").
 genre(manny__lo, comedy).
 genre(manny__lo, drama).
 director(manny__lo, lisa_krueger).
@@ -2958,6 +3074,8 @@ actor(manny__lo, tony_arnaud, sheriff).
 actor(manny__lo, nicholas_lent, lo_s_baby).
 
 movie(match_point, 2005).
+description(match_point ,"").
+poster(match_point ,"").
 genre(match_point, drama).
 genre(match_point, romance).
 genre(match_point, thriller).
@@ -2980,6 +3098,8 @@ actor(match_point, colin_salmon, '').
 actress(match_point, zoe_telford, samantha).
 
 movie(my_brother_the_pig, 1999).
+description(my_brother_the_pig ,"").
+poster(my_brother_the_pig ,"").
 genre(my_brother_the_pig, comedy).
 genre(my_brother_the_pig, family).
 genre(my_brother_the_pig, fantasy).
@@ -3003,6 +3123,8 @@ actor(my_brother_the_pig, rob_johnston, taxi_driver).
 actor(my_brother_the_pig, dee_bradley_baker, pig_george).
 
 movie(north, 1994).
+description(north ,"").
+poster(north ,"").
 genre(north, adventure).
 genre(north, comedy).
 genre(north, drama).
@@ -3123,6 +3245,8 @@ actor(north, jim_great_elk_waters, eskimo_father).
 actor(north, michael_werckle, amish_boy).
 
 movie(the_perfect_score, 2004).
+description(the_perfect_score ,"").
+poster(the_perfect_score ,"").
 genre(the_perfect_score, comedy).
 genre(the_perfect_score, crime).
 genre(the_perfect_score, drama).
@@ -3168,6 +3292,8 @@ actor(the_perfect_score, rob_boyce, guard).
 actor(the_perfect_score, paul_campbell, guy_in_truck).
 
 movie(the_spongebob_squarepants_movie, 2004).
+description(the_spongebob_squarepants_movie ,"").
+poster(the_spongebob_squarepants_movie ,"").
 genre(the_spongebob_squarepants_movie, adventure).
 genre(the_spongebob_squarepants_movie, action).
 genre(the_spongebob_squarepants_movie, comedy).
@@ -3225,6 +3351,8 @@ actor(the_spongebob_squarepants_movie, michael_patrick_bell, fisherman).
 actor(the_spongebob_squarepants_movie, jim_wise, goofy_goober_rock_singer).
 
 movie(untitled_woody_allen_fall_project_2006, 2006).
+description(untitled_woody_allen_fall_project_2006 ,"").
+poster(untitled_woody_allen_fall_project_2006 ,"").
 genre(untitled_woody_allen_fall_project_2006, comedy).
 genre(untitled_woody_allen_fall_project_2006, crime).
 genre(untitled_woody_allen_fall_project_2006, fantasy).
@@ -3241,6 +3369,8 @@ actor(untitled_woody_allen_fall_project_2006, james_nesbitt, '').
 actor(untitled_woody_allen_fall_project_2006, colin_salmon, '').
 
 movie(jojo_rabbit, 2019).
+description(jojo_rabbit ,"").
+poster(jojo_rabbit ,"").
 genre(jojo_rabbit, comedy).
 genre(jojo_rabbit, drama).
 genre(jojo_rabbit, war).
