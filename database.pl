@@ -68,7 +68,7 @@ movie(american_beauty, 1999).
 genre(american_beauty, comedy).
 genre(american_beauty, drama).
 description(american_beauty, "A sexually frustrated suburban father has a mid-life crisis after becoming infatuated with his daughter's best friend.").
-poster(american_beauty, "https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg").
+poster(american_beauty, "https://alternativemovieposters.com/wp-content/uploads/2014/01/americanbeautybg.jpg").
 director(american_beauty, sam_mendes).
 actor(american_beauty, kevin_spacey, lester_burnham).
 actress(american_beauty, annette_bening, carolyn_burnham).
@@ -2469,8 +2469,8 @@ actress(an_american_rhapsody, va_g_rdos, suzanne_sandor_in_family_picture_age_6)
 actor(an_american_rhapsody, peter_janosi, german_customs_officer).
 
 movie(the_black_dahlia, 2006).
-description(the_black_dahlia ,"").
-poster(the_black_dahlia ,"").
+description(the_black_dahlia ,"Two policemen see their personal and professional lives fall apart in the wake of the "Black Dahlia" Elizabeth Short murder investigation.").
+poster(the_black_dahlia ,"https://m.media-amazon.com/images/M/MV5BMTg0MDc1OTQ5NF5BMl5BanBnXkFtZTcwNzE1ODUzMQ@@._V1_.jpg").
 genre(the_black_dahlia, crime).
 genre(the_black_dahlia, drama).
 genre(the_black_dahlia, mystery).
@@ -2511,8 +2511,8 @@ actor(the_black_dahlia, joey_slotnick, '').
 actor(the_black_dahlia, mike_starr, russ_millard).
 
 movie(fall, 1997).
-description(fall ,"").
-poster(fall ,"").
+description(fall ,"Cab driver Michael and supermodel Sarah fall in love while her gorgeous husband Phillippe is in Madrid for two months.").
+poster(fall ,"https://m.media-amazon.com/images/M/MV5BMGViMzBlZDEtYWQ0MC00YzBmLTg5OGUtN2E0YjMxY2UzM2FiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY1200_CR85,0,630,1200_AL_.jpg").
 genre(fall, drama).
 genre(fall, romance).
 director(fall, eric_schaeffer).
@@ -2538,8 +2538,8 @@ actor(fall, evan_thompson, priest).
 actor(fall, larry_weiss, paparazzi).
 
 movie(eight_legged_freaks, 2002).
-description(eight_legged_freaks ,"").
-poster(eight_legged_freaks ,"").
+description(eight_legged_freaks ,"Venomous spiders get exposed to a noxious chemical that causes them to grow to monumental proportions.").
+poster(eight_legged_freaks ,"https://picfiles.alphacoders.com/893/89356.jpg").
 genre(eight_legged_freaks, action).
 genre(eight_legged_freaks, adventure).
 genre(eight_legged_freaks, comedy).
@@ -2573,8 +2573,8 @@ actor(eight_legged_freaks, bruiser, himself).
 actor(eight_legged_freaks, tom_noonan, joshua_taft).
 
 movie(ghost_world, 2000).
-description(ghost_world ,"").
-poster(ghost_world ,"").
+description(ghost_world ,"With only the plan of moving in together after high school, two unusually devious friends seek direction in life. As a mere gag, they respond to a man's newspaper ad for a date, only to find it will greatly complicate their lives.").
+poster(ghost_world ,"https://i.pinimg.com/originals/ee/22/cb/ee22cba7e9e6163872cb239eac8282ae.jpg").
 genre(ghost_world, comedy).
 genre(ghost_world, drama).
 director(ghost_world, terry_zwigoff).
@@ -2652,8 +2652,8 @@ actress(ghost_world, michelle_marie_white, mom_in_convenience_store).
 actor(ghost_world, peter_yarrow, himself).
 
 movie(a_good_woman, 2004).
-description(a_good_woman ,"").
-poster(a_good_woman ,"").
+description(a_good_woman ,"A 1930s American socialite creates a scandal in the expatriate high society of the Amalfi Coast of Italy when she forms a secretive relationship with a wealthy American unbeknownst to his young wife.").
+poster(a_good_woman ,"https://i.pinimg.com/originals/15/38/6f/15386fb66e976452b61fd125eaa938f9.jpg").
 genre(a_good_woman, drama).
 genre(a_good_woman, comedy).
 genre(a_good_woman, romance).
@@ -2683,8 +2683,8 @@ actress(a_good_woman, camilla_bertocci, stella_s_maid_2).
 actress(a_good_woman, nichola_aigner, mrs_gowper).
 
 movie(if_lucy_fell, 1996).
-description(if_lucy_fell ,"").
-poster(if_lucy_fell ,"").
+description(if_lucy_fell ,"Two NYC roomies have a pact to jump off Brooklyn Bridge, if they haven't found life partners before she's 30. That's less than a month away.").
+poster(if_lucy_fell ,"https://images-na.ssl-images-amazon.com/images/I/A1kOpMpdloL._SL1500_.jpg").
 genre(if_lucy_fell, comedy).
 genre(if_lucy_fell, romance).
 director(if_lucy_fell, eric_schaeffer).
@@ -2714,8 +2714,8 @@ actor(if_lucy_fell, brian_keane, man_in_gallery).
 actress(if_lucy_fell, amanda_kravat, woman_in_park).
 
 movie(home_alone_3, 1997).
-description(home_alone_3 ,"").
-poster(home_alone_3 ,"").
+description(home_alone_3 ,"Alex Pruitt, an 8-year-old boy living in Chicago, must fend off international spies who seek a top-secret computer chip in his toy car.").
+poster(home_alone_3 ,"https://www.themoviedb.org/t/p/original/i7VIXg8e2G7kuaad1rwCqryBvkJ.jpg").
 genre(home_alone_3, action).
 genre(home_alone_3, comedy).
 genre(home_alone_3, crime).
@@ -2756,8 +2756,8 @@ actor(home_alone_3, zachary_lee, johnny_allen).
 actress(home_alone_3, kelly_ann_marquart, girl_on_sidewalk).
 
 movie(the_horse_whisperer, 1998).
-description(the_horse_whisperer ,"").
-poster(the_horse_whisperer ,"").
+description(the_horse_whisperer ,"The mother of a severely traumatized daughter enlists the aid of a unique horse trainer to help the girl's equally injured horse.").
+poster(the_horse_whisperer ,"https://m.media-amazon.com/images/M/MV5BZTA5NzU4YzItMjhjYy00YjNjLTljM2MtZDk3ZDE5OGVjNTBhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg").
 genre(the_horse_whisperer, drama).
 genre(the_horse_whisperer, romance).
 genre(the_horse_whisperer, western).
@@ -2801,8 +2801,8 @@ actor(the_horse_whisperer, donnie_saylor, rugged_cowboy).
 actor(the_horse_whisperer, george_strait, himself).
 
 movie(in_good_company, 2004).
-description(in_good_company ,"").
-poster(in_good_company ,"").
+description(in_good_company ,"A middle-aged ad exec is faced with a new boss who's nearly half his age... and who also happens to be sleeping with his daughter.").
+poster(in_good_company ,"https://m.media-amazon.com/images/M/MV5BYzcyODA1ZjYtNDAwYy00YTM3LWJkODYtODk1OWRhYTkzNDBmXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_.jpg").
 genre(in_good_company, comedy).
 genre(in_good_company, drama).
 genre(in_good_company, romance).
@@ -2859,8 +2859,8 @@ actress(in_good_company, loretta_shenosky, kalb_s_assistant).
 actor(in_good_company, trevor_stynes, man_on_street).
 
 movie(just_cause, 1995).
-description(just_cause ,"").
-poster(just_cause ,"").
+description(just_cause ,"A Harvard professor is lured back into the courtroom after twenty-five years to take the case of a young black man condemned to death for the horrific murder of a child.").
+poster(just_cause ,"https://c8.alamy.com/comp/BPFA3K/sean-connery-poster-just-cause-1995-BPFA3K.jpg").
 genre(just_cause, action).
 genre(just_cause, crime).
 genre(just_cause, drama).
@@ -2925,8 +2925,8 @@ actor(just_cause, michael_sassano, courtroom_observer).
 actor(just_cause, rene_teboe, man_in_bus_terminal).
 
 movie(the_island, 2005).
-description(the_island ,"").
-poster(the_island ,"").
+description(the_island ,"A man living in a futuristic sterile colony begins to question his circumscribed existence when his friend is chosen to go to the Island, the last uncontaminated place on earth.").
+poster(the_island ,"https://www.teahub.io/photos/full/340-3404763_the-island.jpg").
 genre(the_island, action).
 genre(the_island, scifi).
 genre(the_island, thriller).
@@ -3009,8 +3009,8 @@ actor(the_island, skyler_stone, sarah_jordan_s_husband).
 actor(the_island, richard_john_walters, agnate).
 
 movie(a_love_song_for_bobby_long, 2004).
-description(a_love_song_for_bobby_long ,"").
-poster(a_love_song_for_bobby_long ,"").
+description(a_love_song_for_bobby_long ,"A headstrong young woman returns to New Orleans after the death of her estranged mother.").
+poster(a_love_song_for_bobby_long ,"https://i.pinimg.com/originals/6c/8c/3f/6c8c3f65f27cc08acab8e7f944d53dbb.jpg").
 genre(a_love_song_for_bobby_long, drama).
 director(a_love_song_for_bobby_long, shainee_gabel).
 actor(a_love_song_for_bobby_long, john_travolta, bobby_long).
@@ -3039,8 +3039,8 @@ actor(a_love_song_for_bobby_long, sal_sapienza, jazz_club_patron).
 actor(a_love_song_for_bobby_long, doc_whitney, alcoholic).
 
 movie(manny__lo, 1996).
-description(manny__lo ,"").
-poster(manny__lo ,"").
+description(manny__lo ,"A pregnant teen and her younger sister run away from foster homes and kidnap a woman whom they believe can help with the pregnancy.").
+poster(manny__lo ,"https://www.themoviedb.org/t/p/original/qAAeCBT0SOfXCPWxAH2DChw14k3.jpg").
 genre(manny__lo, comedy).
 genre(manny__lo, drama).
 director(manny__lo, lisa_krueger).
@@ -3074,8 +3074,8 @@ actor(manny__lo, tony_arnaud, sheriff).
 actor(manny__lo, nicholas_lent, lo_s_baby).
 
 movie(match_point, 2005).
-description(match_point ,"").
-poster(match_point ,"").
+description(match_point ,"At a turning point in his life, a former tennis pro falls for an actress who happens to be dating his friend and soon-to-be brother-in-law.").
+poster(match_point ,"https://www.joblo.com/assets/images/oldsite/posters/images/full/2005-match_point-4.jpg").
 genre(match_point, drama).
 genre(match_point, romance).
 genre(match_point, thriller).
@@ -3098,8 +3098,8 @@ actor(match_point, colin_salmon, '').
 actress(match_point, zoe_telford, samantha).
 
 movie(my_brother_the_pig, 1999).
-description(my_brother_the_pig ,"").
-poster(my_brother_the_pig ,"").
+description(my_brother_the_pig ,"Being a teen is tough enough for Kathy Cauldwell without having to be the target of her little brother George's constant practical jokes. Then their parents leave for France and George is magically transformed into a pig via some of their nanny Matilda's ancient rocks.").
+poster(my_brother_the_pig ,"https://images-na.ssl-images-amazon.com/images/I/71kDm7uta9L._SL1211_.jpg").
 genre(my_brother_the_pig, comedy).
 genre(my_brother_the_pig, family).
 genre(my_brother_the_pig, fantasy).
@@ -3123,8 +3123,8 @@ actor(my_brother_the_pig, rob_johnston, taxi_driver).
 actor(my_brother_the_pig, dee_bradley_baker, pig_george).
 
 movie(north, 1994).
-description(north ,"").
-poster(north ,"").
+description(north ,"Sick of the neglect he receives from his mom and dad, a young boy leaves home and travels the world in search of new parents.").
+poster(north ,"https://images-na.ssl-images-amazon.com/images/I/81HFtLDPOZL._RI_.jpg").
 genre(north, adventure).
 genre(north, comedy).
 genre(north, drama).
@@ -3245,8 +3245,8 @@ actor(north, jim_great_elk_waters, eskimo_father).
 actor(north, michael_werckle, amish_boy).
 
 movie(the_perfect_score, 2004).
-description(the_perfect_score ,"").
-poster(the_perfect_score ,"").
+description(the_perfect_score ,"Six high school seniors decide to break into the Princeton Testing Center so they can steal the answers to their upcoming SAT tests and all get perfect scores.").
+poster(the_perfect_score ,"https://static.wikia.nocookie.net/filmguide/images/d/dd/The_Perfect_Score_2004_Poster.jpg/revision/latest?cb=20200128040638").
 genre(the_perfect_score, comedy).
 genre(the_perfect_score, crime).
 genre(the_perfect_score, drama).
@@ -3292,8 +3292,8 @@ actor(the_perfect_score, rob_boyce, guard).
 actor(the_perfect_score, paul_campbell, guy_in_truck).
 
 movie(the_spongebob_squarepants_movie, 2004).
-description(the_spongebob_squarepants_movie ,"").
-poster(the_spongebob_squarepants_movie ,"").
+description(the_spongebob_squarepants_movie ,"SpongeBob SquarePants takes leave from the town of Bikini Bottom in order to track down King Neptune's stolen crown.").
+poster(the_spongebob_squarepants_movie ,"https://i.pinimg.com/originals/44/36/71/44367117adc04d0ff75a729bcbc364d4.jpg").
 genre(the_spongebob_squarepants_movie, adventure).
 genre(the_spongebob_squarepants_movie, action).
 genre(the_spongebob_squarepants_movie, comedy).
@@ -3351,8 +3351,8 @@ actor(the_spongebob_squarepants_movie, michael_patrick_bell, fisherman).
 actor(the_spongebob_squarepants_movie, jim_wise, goofy_goober_rock_singer).
 
 movie(untitled_woody_allen_fall_project_2006, 2006).
-description(untitled_woody_allen_fall_project_2006 ,"").
-poster(untitled_woody_allen_fall_project_2006 ,"").
+description(untitled_woody_allen_fall_project_2006 ,"An American journalism student in London scoops a big story, and begins an affair with an aristocrat as the incident unfurls.").
+poster(untitled_woody_allen_fall_project_2006 ,"https://www.joblo.com/assets/images/oldsite/posters/images/full/2006-scoop-2.jpg").
 genre(untitled_woody_allen_fall_project_2006, comedy).
 genre(untitled_woody_allen_fall_project_2006, crime).
 genre(untitled_woody_allen_fall_project_2006, fantasy).
@@ -3369,8 +3369,8 @@ actor(untitled_woody_allen_fall_project_2006, james_nesbitt, '').
 actor(untitled_woody_allen_fall_project_2006, colin_salmon, '').
 
 movie(jojo_rabbit, 2019).
-description(jojo_rabbit ,"").
-poster(jojo_rabbit ,"").
+description(jojo_rabbit ,"A young boy in Hitler's army finds out his mother is hiding a Jewish girl in their home.").
+poster(jojo_rabbit ,"https://movieden.net/wp-content/uploads/2020/02/jojo-rabbit-1.jpg").
 genre(jojo_rabbit, comedy).
 genre(jojo_rabbit, drama).
 genre(jojo_rabbit, war).
