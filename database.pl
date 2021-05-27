@@ -2311,7 +2311,7 @@ actor(star_wars_episode_i__the_phantom_menace, bob_woods, naboo_courier).
 
 movie(torrance_rises, 1999).
 rating(torrance_rises, 3.5).
-description(torrance_rises ,"A mockumentary chronicling the Torrance Community Dance Group (from Fatboy Slim's "Praise You" video) on their road to the MTV Video Music Awards.").
+description(torrance_rises ,"A mockumentary chronicling the Torrance Community Dance Group (from Fatboy Slim's \"Praise You\" video) on their road to the MTV Video Music Awards.").
 poster(torrance_rises ,"https://m.media-amazon.com/images/M/MV5BMjY3NTQ3MDgtYWZjYy00NWE1LTg0OWUtNGMyYmE4NTkxYzE5XkEyXkFqcGdeQXVyNTk5Nzg1NjQ@._V1_UY268_CR96,0,182,268_AL_.jpg").
 genre(torrance_rises, comedy).
 genre(torrance_rises, short).
