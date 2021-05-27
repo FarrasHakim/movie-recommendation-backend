@@ -130,10 +130,16 @@ listByYear(List) :-
 
 list_to_dict_list([],[],_).
 list_to_dict_list([Year],[Movie],ListDict) :-
-        ListDict = [_{year:Year, movie:Movie}].
+        getActors(Movie, ActorsList),
+        findall(Genre, genre(Movie, Genre), GenresList),
+        findall(Director, director(Movie, Director), [Director|_]),
+        ListDict = [_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}].
 list_to_dict_list([Year|YearList], [Movie|MovieList], ListDict) :-
         list_to_dict_list(YearList, MovieList, Temp),
-        append([_{year:Year, movie:Movie}], Temp, ListDict).
+        getActors(Movie, ActorsList),
+        findall(Genre, genre(Movie, Genre), GenresList),
+        findall(Director, director(Movie, Director), [Director|_]),
+        append([_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}], Temp, ListDict).
 
 
 assert_movie(_{name:MovieName, year:MovieYear}, DictOut) :-
