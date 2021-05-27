@@ -91,13 +91,15 @@ sort_movies_by_year(Request) :-
 Handlers Method
 */
 
-movieByYear(Year, List) :- 
+movieByYear(Year, MovieDetailList) :- 
         atom_number(Year, YearNumber),
-        findall(Movie, movie(Movie, YearNumber), List).
+        findall(Movie, movie(Movie, YearNumber), MovieList),
+        movie_list_to_detail_list(MovieList, MovieDetailList).
 
-movies_by_genre(Genre, _{list:List}) :-
+movies_by_genre(Genre, _{list:MovieDetailList}) :-
         json:to_atom(Genre, GenreAtom),
-        findall(Movie, genre(Movie, GenreAtom), List).
+        findall(Movie, genre(Movie, GenreAtom), MovieList),        
+        movie_list_to_detail_list(MovieList, MovieDetailList).
 
 listByYear(List) :-
         findall(Year-Movie, movie(Movie, Year), MovieYears),
