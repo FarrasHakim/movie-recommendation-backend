@@ -6,6 +6,8 @@
 :- use_module(library(http/json_convert)).
 :- use_module(library(http/http_header)).
 :- use_module(library(http/http_parameters)).
+:- use_module(library(http/http_authenticate)).
+:- use_module(library(http/http_digest)).
 :- [database].
 :- [utils].
 :- [controller/movieFilterByName].
@@ -22,20 +24,20 @@ http:location(food, '/food', []).
 
 % And, just for clarity, define a second handler
 % this one can by reached at http://127.0.0.1:8000/taco
-:- http_handler('/movies', request_handler_list_movies, []).
-:- http_handler('/movies/', request_handler_list_movies, []).
-:- http_handler('/movies/genres', request_handler_list_genres, []).
-:- http_handler('/movies/genres/', request_handler_list_genres, []).
-:- http_handler('/movies/detail', request_handler_movie_detail, []).
-:- http_handler('/movies/detail/', request_handler_movie_detail, []).
-:- http_handler('/movies/filter/year', request_handler_filter_by_year, []).
-:- http_handler('/movies/filter/year/', request_handler_filter_by_year, []).
-:- http_handler('/movies/filter/genre', request_handler_filter_by_genre, []).
-:- http_handler('/movies/filter/genre/', request_handler_filter_by_genre, []).
-:- http_handler('/movies/sort/year', request_handler_sort_movies_by_year, []).
-:- http_handler('/movies/sort/year/', request_handler_sort_movies_by_year, []).
-:- http_handler('/movies/sort/name', sort_movies_by_name, []).
-:- http_handler('/movies/sort/name/', sort_movies_by_name, []).
+:- http_handler('/movies', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/genres', request_handler_list_genres, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/genres/', request_handler_list_genres, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/detail', request_handler_movie_detail, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/detail/', request_handler_movie_detail, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/filter/year', request_handler_filter_by_year, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/filter/year/', request_handler_filter_by_year, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/filter/genre', request_handler_filter_by_genre, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/filter/genre/', request_handler_filter_by_genre, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/sort/year', request_handler_sort_movies_by_year, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/sort/year/', request_handler_sort_movies_by_year, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/sort/name', sort_movies_by_name, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/sort/name/', sort_movies_by_name, [authentication(basic(passwd, unguent_realm))]).
 % TODO// recommended movie
 % TODO// filter
 
@@ -60,7 +62,7 @@ say_hi(_Request) :-
         format('Content-type: text/plain~n~n'),
         format('Hello There! Farras, Sayid, Supri were here.~n').
 
-request_handler_list_movies(Request) :-        
+request_handler_list_movies(Request) :-   
         format(user_output,"Request is: ~p~n",[Request]),
         list_movies(DictOut),
         reply_json_dict(_{list:DictOut}).
@@ -111,3 +113,17 @@ sort_by_year(MovieListDetail) :-
 
 list_genres(List) :-
         setof(Genre, Movie^genre(Movie,Genre),List).
+
+% To add Username and Password to use in basic authentication
+
+add_uname_pw(Uname, PW) :-
+	http_read_passwd_file(passwd, Users),
+	crypt(PW, Hash),
+	atom_codes(AHash, Hash),
+	http_write_passwd_file(passwd, [passwd(Uname, AHash, []) | Users]).
+
+% start the passwd file with user adminuser password adminpw
+start_pw_file :-
+	crypt(admin, Hash),
+	atom_codes(AHash, Hash),
+	http_write_passwd_file(passwd, [passwd(admin, AHash, [])]).
