@@ -10,6 +10,11 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
 4. Jalankan `swipl -g "server(8000)" web-service.pl`
 5. Website dapat diakses melalui browser dengan alamat url `localhost:<port>`
 
+#### Authentication
+- API ini menggunakan basic auth
+- Salah satu akun authnya adalah Username:admin, Password:admin
+- Contoh penggunaan basic auth: `curl -u admin:admin http://localhost:3001/movies`
+
 #### Contoh request yang dapat dijalankan
 
 1. Get All Movies
