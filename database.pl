@@ -2517,7 +2517,7 @@ actor(an_american_rhapsody, peter_janosi, german_customs_officer).
 
 movie(the_black_dahlia, 2006).
 rating(the_black_dahlia, 4.5).
-description(the_black_dahlia ,"Two policemen see their personal and professional lives fall apart in the wake of the "Black Dahlia" Elizabeth Short murder investigation.").
+description(the_black_dahlia ,'Two policemen see their personal and professional lives fall apart in the wake of the "Black Dahlia" Elizabeth Short murder investigation.').
 poster(the_black_dahlia ,"https://m.media-amazon.com/images/M/MV5BMTg0MDc1OTQ5NF5BMl5BanBnXkFtZTcwNzE1ODUzMQ@@._V1_.jpg").
 genre(the_black_dahlia, crime).
 genre(the_black_dahlia, drama).

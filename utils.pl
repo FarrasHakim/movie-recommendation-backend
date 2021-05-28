@@ -22,30 +22,73 @@ listActors(Movie, List) :-
 % Change list to dict of list
 list_to_dict_list([],[],_).
 list_to_dict_list([Year],[Movie],ListDict) :-
-        listActors(Movie, ActorsList),
+        % listActors(Movie, ActorsList),
         findall(Genre, genre(Movie, Genre), GenresList),
         findall(Director, director(Movie, Director), [Director|_]),
-        ListDict = [_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}].
+        findall(Desc,description(Movie,Desc),[Desc|_]),
+        findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
+        ListDict = [_{
+                year:Year, 
+                movie:Movie, 
+                % actors: ActorsList, 
+                director: Director, 
+                genres: GenresList,
+                desc: Desc,
+                poster: PosterUrl
+                }].
 list_to_dict_list([Year|YearList], [Movie|MovieList], ListDict) :-
         list_to_dict_list(YearList, MovieList, Temp),
-        listActors(Movie, ActorsList),
+        % listActors(Movie, ActorsList),
         findall(Genre, genre(Movie, Genre), GenresList),
         findall(Director, director(Movie, Director), [Director|_]),
-        append([_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}], Temp, ListDict).
+        findall(Desc,description(Movie,Desc),[Desc|_]),
+        findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
+        append([_{
+                year:Year, 
+                movie:Movie, 
+                % actors: ActorsList, 
+                director: Director, 
+                genres: GenresList,
+                desc: Desc,
+                poster: PosterUrl
+                }], 
+                Temp, 
+                ListDict).
 
 % Change movie list to list of movies with details
 movie_list_to_detail_list([], _).
 movie_list_to_detail_list([Movie], ListDict) :-
-        listActors(Movie, ActorsList),
+        % listActors(Movie, ActorsList),
         findall(Genre, genre(Movie, Genre), GenresList),
         findall(Director, director(Movie, Director), [Director|_]),
-        bagof(Year,movie(jojo_rabbit,Year),[Year|_]),
-        ListDict = [_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}].
+        findall(Year,movie(Movie,Year),[Year|_]),
+        findall(Desc,description(Movie,Desc),[Desc|_]),
+        findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
+        ListDict = [_{
+                year:Year, 
+                movie:Movie, 
+                % actors: ActorsList, 
+                director: Director, 
+                genres: GenresList,                
+                desc: Desc,
+                poster: PosterUrl}].
 
 movie_list_to_detail_list([Movie|MovieList], ListDict) :-
         movie_list_to_detail_list(MovieList, Temp),
-        listActors(Movie, ActorsList),
+        % listActors(Movie, ActorsList),
         findall(Genre, genre(Movie, Genre), GenresList),
         findall(Director, director(Movie, Director), [Director|_]),
-        bagof(Year,movie(Movie,Year),[Year|_]),
-        append([_{year:Year, movie:Movie, actors: ActorsList, director: Director, genres: GenresList}], Temp, ListDict).
+        findall(Year,movie(Movie,Year),[Year|_]),
+        findall(Desc,description(Movie,Desc),[Desc|_]),
+        findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
+        append([_{
+                year:Year, 
+                movie:Movie, 
+                % actors: ActorsList, 
+                director: Director, 
+                genres: GenresList,
+                desc: Desc,
+                poster: PosterUrl
+                }], 
+                Temp, 
+                ListDict).

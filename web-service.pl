@@ -24,15 +24,16 @@ http:location(food, '/food', []).
 % this one can by reached at http://127.0.0.1:8000/taco
 :- http_handler('/movies', get_Data, []).
 :- http_handler('/movies/', get_Data, []).
-:- http_handler('/movies/filter-by-year', get_movie_by_year, []).
-:- http_handler('/movies/filter-by-year/', get_movie_by_year, []).
-:- http_handler('/movies/detail', get_movie_by_name, []).
-:- http_handler('/movies/detail/', get_movie_by_name, []).
 :- http_handler('/movies/genres', get_genres, []).
 :- http_handler('/movies/genres/', get_genres, []).
-:- http_handler('/movies/by-genre', get_movies_by_genre, []).
-:- http_handler('/movies/by-genre/', get_movies_by_genre, []).
-:- http_handler('/movies/sort-by-year/', sort_movies_by_year, []).
+:- http_handler('/movies/detail', get_movie_by_name, []).
+:- http_handler('/movies/detail/', get_movie_by_name, []).
+:- http_handler('/movies/filter/year', get_movie_by_year, []).
+:- http_handler('/movies/filter/year/', get_movie_by_year, []).
+:- http_handler('/movies/filter/genre', get_movies_by_genre, []).
+:- http_handler('/movies/filter/genre/', get_movies_by_genre, []).
+:- http_handler('/movies/sort/year', sort_movies_by_year, []).
+:- http_handler('/movies/sort/year/', sort_movies_by_year, []).
 :- http_handler('/movies/sort/name', sort_movies_by_name, []).
 :- http_handler('/movies/sort/name/', sort_movies_by_name, []).
 % TODO// recommended movie
@@ -110,3 +111,5 @@ listByYear(List) :-
         pairs_values(Sorted, MovieList),
         list_to_dict_list(SortedYearList, MovieList, List).
 
+listGenres(List) :-
+        setof(Genre, Movie^genre(Movie,Genre),List).
