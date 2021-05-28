@@ -1,6 +1,6 @@
 :- [dao/movies/filter/name].
 
-get_movie_by_name(Request) :- 
+http_handler_movie_detail(Request) :- 
     http_parameters(Request, [name(Name, [])]),
     format(user_output,"Query is: ~p~n",[Name]),
     movieByName(Name, DictOut),

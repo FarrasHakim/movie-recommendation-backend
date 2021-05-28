@@ -22,18 +22,18 @@ http:location(food, '/food', []).
 
 % And, just for clarity, define a second handler
 % this one can by reached at http://127.0.0.1:8000/taco
-:- http_handler('/movies', get_Data, []).
-:- http_handler('/movies/', get_Data, []).
-:- http_handler('/movies/genres', get_genres, []).
-:- http_handler('/movies/genres/', get_genres, []).
-:- http_handler('/movies/detail', get_movie_by_name, []).
-:- http_handler('/movies/detail/', get_movie_by_name, []).
-:- http_handler('/movies/filter/year', get_movie_by_year, []).
-:- http_handler('/movies/filter/year/', get_movie_by_year, []).
-:- http_handler('/movies/filter/genre', get_movies_by_genre, []).
-:- http_handler('/movies/filter/genre/', get_movies_by_genre, []).
-:- http_handler('/movies/sort/year', sort_movies_by_year, []).
-:- http_handler('/movies/sort/year/', sort_movies_by_year, []).
+:- http_handler('/movies', http_handler_list_movies, []).
+:- http_handler('/movies/', http_handler_list_movies, []).
+:- http_handler('/movies/genres', http_handler_list_genres, []).
+:- http_handler('/movies/genres/', http_handler_list_genres, []).
+:- http_handler('/movies/detail', http_handler_movie_detail, []).
+:- http_handler('/movies/detail/', http_handler_movie_detail, []).
+:- http_handler('/movies/filter/year', http_handler_filter_by_year, []).
+:- http_handler('/movies/filter/year/', http_handler_filter_by_year, []).
+:- http_handler('/movies/filter/genre', http_handler_filter_by_genre, []).
+:- http_handler('/movies/filter/genre/', http_handler_filter_by_genre, []).
+:- http_handler('/movies/sort/year', http_handler_sort_movies_by_year, []).
+:- http_handler('/movies/sort/year/', http_handler_sort_movies_by_year, []).
 :- http_handler('/movies/sort/name', sort_movies_by_name, []).
 :- http_handler('/movies/sort/name/', sort_movies_by_name, []).
 % TODO// recommended movie
@@ -60,7 +60,7 @@ say_hi(_Request) :-
         format('Content-type: text/plain~n~n'),
         format('Hello There! Farras, Sayid, Supri were here.~n').
 
-get_movie_by_year(Request) :- 
+http_handler_filter_by_year(Request) :- 
         http_parameters(Request, [year(Year, [])]),
    format(user_output,"Request is: ~p~n",[Request]),
    format(user_output,"Query is: ~p~n",[Year]),
@@ -68,23 +68,23 @@ get_movie_by_year(Request) :-
    format(user_output,"DictOut is: ~p~n",[DictOut]),
         reply_json(_{list:DictOut}).
 
-get_Data(Request) :-        
+http_handler_list_movies(Request) :-        
         format(user_output,"Request is: ~p~n",[Request]),
         listMovies(DictOut),
         reply_json_dict(_{list:DictOut}).
 
-get_genres(Request) :-        
+http_handler_list_genres(Request) :-        
         format(user_output,"Request is: ~p~n",[Request]),
         listGenres(DictOut),
         reply_json_dict(_{list:DictOut}).
 
-get_movies_by_genre(Request) :-
+http_handler_filter_by_genre(Request) :-
         http_parameters(Request, [genre(Genre, [])]),
         format(user_output,"Query is: ~p~n",[Genre]),
         movies_by_genre(Genre, DictOut),
         reply_json(DictOut).
 
-sort_movies_by_year(Request) :-
+http_handler_sort_movies_by_year(Request) :-
         format(user_output,"Request is: ~p~n",[Request]),
         listByYear(DictOut),
         reply_json_dict(_{list:DictOut}).
@@ -103,13 +103,11 @@ movies_by_genre(Genre, _{list:MovieDetailList}) :-
         findall(Movie, genre(Movie, GenreAtom), MovieList),        
         movie_list_to_detail_list(MovieList, MovieDetailList).
 
-listByYear(List) :-
+listByYear(MovieListDetail) :-
         findall(Year-Movie, movie(Movie, Year), MovieYears),
         keysort(MovieYears, Sorted),
-        findall(Year, movie(_,Year), YearList),
-        msort(YearList, SortedYearList),
         pairs_values(Sorted, MovieList),
-        list_to_dict_list(SortedYearList, MovieList, List).
+        movie_list_to_detail_list(MovieList, MovieListDetail).
 
 listGenres(List) :-
         setof(Genre, Movie^genre(Movie,Genre),List).

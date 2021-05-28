@@ -12,7 +12,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
 
 #### Contoh request yang dapat dijalankan
 
-1. "Get" Movies
+1. Get All Movies
 
    Endpoint-URL: `GET /movies`\
    Input: **Null**
@@ -32,47 +32,42 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
        ]
    }
    ```
+2. Get All Movie Genres
 
-2. Add Number
-
-   Endpoint-URL: `POST /add`\
-   Input:
-
-   ```
-   {
-       "a": 12,
-       "b": 13
-   }
-   ```
-
-   Output:
-
-   ```
-   {
-      "answer": 25
-   }
-   ```
-
-3. Get Movies By Year
-
-   Endpoint-URL: `GET /movies/filter-by-year?year=1999`\
-   Input: **NULL**
+   Endpoint-URL: `GET /movies/genres`\
+   Input: **Null**
 
    Output:
 
    ```
    {
     "list": [
-            "american_beauty",
-            "star_wars_episode_i__the_phantom_menace",
-            "torrance_rises",
-            "the_virgin_suicides",
-            "my_brother_the_pig"
+            "action",
+            "adventure",
+            "animation",
+            "biography",
+            "comedy",
+            "crime",
+            "documentary",
+            "drama",
+            "family",
+            "fantasy",
+            "history",
+            "horror",
+            "music",
+            "mystery",
+            "romance",
+            "scifi",
+            "short",
+            "sport",
+            "thriller",
+            "war",
+            "western"
         ]
     }
    ```
 
-4. Get Movies By Name
+3. Get Movie Detail
 
    Endpoint-URL: `GET /movies/detail?name=american_beauty`\
    Input:**NULL**
@@ -129,42 +124,26 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
     }
    ```
 
-5. Get Movie Genres
+4. Filter Movies By Year
 
-   Endpoint-URL: `GET /movies/genres/`\
-   Input: **Null**
+   Endpoint-URL: `GET /movies/filter-by-year?year=1999`\
+   Input: **NULL**
 
    Output:
 
    ```
    {
     "list": [
-            "action",
-            "adventure",
-            "animation",
-            "biography",
-            "comedy",
-            "crime",
-            "documentary",
-            "drama",
-            "family",
-            "fantasy",
-            "history",
-            "horror",
-            "music",
-            "mystery",
-            "romance",
-            "scifi",
-            "short",
-            "sport",
-            "thriller",
-            "war",
-            "western"
+            "american_beauty",
+            "star_wars_episode_i__the_phantom_menace",
+            "torrance_rises",
+            "the_virgin_suicides",
+            "my_brother_the_pig"
         ]
     }
    ```
 
-6. "Get" Movies by Genre
+5. Filter Movies By Genre
 
    Endpoint-URL: `GET /movies/by-genre?genre=scifi`\
    Input: **NULL**
@@ -184,9 +163,9 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
     }
    ```
 
-7. Get Movies List Sorted By Year
+6. Get Movies List Sorted By Year
 
-   Endpoint-URL: `GET /movies/sort-by-year/`\
+   Endpoint-URL: `GET /movies/sort/year`\
    Input: **NULL**
 
    Output:
