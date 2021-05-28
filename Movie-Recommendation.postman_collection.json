@@ -7,27 +7,15 @@
 	"item": [
 		{
 			"name": "listMovie",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"hello\" : \"world\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/movies/",
+					"raw": "localhost:3001/movies/",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"movies",
 						""
@@ -37,54 +25,19 @@
 			"response": []
 		},
 		{
-			"name": "addition",
+			"name": "listGenres",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"a\" : 12,\r\n    \"b\" : 13\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/add",
+					"raw": "localhost:3001/movies/genres/",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "testJson",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\":\"american_beauty\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/test-json/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"test-json",
+						"movies",
+						"genres",
 						""
 					]
 				}
@@ -92,28 +45,118 @@
 			"response": []
 		},
 		{
-			"name": "movieByYear",
+			"name": "moviedetail",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"year\" : 1999\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/movies/filter-by-year/",
+					"raw": "localhost:3001/movies/detail?name=jojo_rabbit",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"movies",
-						"filter-by-year",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "jojo_rabbit"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterByYear",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/movies/filter/year?year=2005",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"movies",
+						"filter",
+						"year"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2005"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterByGenre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/movies/filter/genre?genre=comedy",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"movies",
+						"filter",
+						"genre"
+					],
+					"query": [
+						{
+							"key": "genre",
+							"value": "comedy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sortByYear",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/movies/sort/year/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"movies",
+						"sort",
+						"year",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sortByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/movies/sort/name/",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"movies",
+						"sort",
+						"name",
 						""
 					]
 				}
