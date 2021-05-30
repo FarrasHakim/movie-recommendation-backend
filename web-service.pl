@@ -12,6 +12,8 @@
 :- [utils].
 :- [controller/movieFilterByName].
 :- [controller/movieSortByName].
+:- [controller/movieSortByRating].
+:- [controller/movieRecommendation].
 
 http:location(files, '/f', []).
 http:location(food, '/food', []).
@@ -26,6 +28,8 @@ http:location(food, '/food', []).
 % this one can by reached at http://127.0.0.1:8000/taco
 :- http_handler('/movies', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
 :- http_handler('/movies/', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/recommended', request_handler_movie_recommendation, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/recommended/', request_handler_movie_recommendation, [authentication(basic(passwd, unguent_realm))]).
 :- http_handler('/movies/genres', request_handler_list_genres, [authentication(basic(passwd, unguent_realm))]).
 :- http_handler('/movies/genres/', request_handler_list_genres, [authentication(basic(passwd, unguent_realm))]).
 :- http_handler('/movies/detail', request_handler_movie_detail, [authentication(basic(passwd, unguent_realm))]).
@@ -38,6 +42,8 @@ http:location(food, '/food', []).
 :- http_handler('/movies/sort/year/', request_handler_sort_movies_by_year, [authentication(basic(passwd, unguent_realm))]).
 :- http_handler('/movies/sort/name', sort_movies_by_name, [authentication(basic(passwd, unguent_realm))]).
 :- http_handler('/movies/sort/name/', sort_movies_by_name, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/sort/rating/asc', sort_movies_by_rating_asc, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, [authentication(basic(passwd, unguent_realm))]).
 % TODO// recommended movie
 % TODO// filter
 
