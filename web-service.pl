@@ -13,6 +13,8 @@
 :- [utils].
 :- [controller/movieFilterByName].
 :- [controller/movieSortByName].
+:- [controller/movieSortByRating].
+:- [controller/movieRecommendation].
 
 :- set_setting(http:cors, [*]).
 http:location(files, '/f', []).
@@ -24,6 +26,8 @@ http:location(food, '/food', []).
 % this one can by reached at http://127.0.0.1:8000/taco
 :- http_handler('/movies', request_handler_list_movies, []).
 :- http_handler('/movies/', request_handler_list_movies, []).
+:- http_handler('/movies/recommended', request_handler_movie_recommendation, []).
+:- http_handler('/movies/recommended/', request_handler_movie_recommendation, []).
 :- http_handler('/movies/genres', request_handler_list_genres, []).
 :- http_handler('/movies/genres/', request_handler_list_genres, []).
 :- http_handler('/movies/detail', request_handler_movie_detail, []).
@@ -36,6 +40,8 @@ http:location(food, '/food', []).
 :- http_handler('/movies/sort/year/', request_handler_sort_movies_by_year, []).
 :- http_handler('/movies/sort/name', sort_movies_by_name, []).
 :- http_handler('/movies/sort/name/', sort_movies_by_name, []).
+:- http_handler('/movies/sort/rating/asc', sort_movies_by_rating_asc, []).
+:- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, []).
 % TODO// recommended movie
 % TODO// filter
 
