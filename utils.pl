@@ -1,13 +1,13 @@
 % Get movie name from subatom
 getMovieName(NameAtom, MovieName) :-
-    findall(Movie, movie(Movie, _), Movies),
-    matchStringFromList(Movies, NameAtom, MovieName).
+        findall(Movie, movie(Movie, _), Movies),
+        matchStringFromList(Movies, NameAtom, MovieName).
 
 % Get match string from list.
 matchStringFromList([X|_], Subname, X) :-
-    sub_atom(X, _, _, _, Subname).
+        sub_atom(X, _, _, _, Subname).
 matchStringFromList([_|Xt], Subname, X) :-
-    matchStringFromList(Xt, Subname, X).
+        matchStringFromList(Xt, Subname, X).
 
 % Get list of movie names
 list_movies(MovieDetailList) :-
@@ -16,7 +16,40 @@ list_movies(MovieDetailList) :-
         
 % Get list of actors and actress
 list_actors(Movie, List) :-
-    findall(Actor, actor(Movie, Actor, _);actress(Movie, Actor, _), List).
+        findall(Actor, actor(Movie, Actor, _);actress(Movie, Actor, _), List).
+
+filter_by_year(Year, MovieDetailList) :- 
+        atom_number(Year, YearNumber),
+        findall(Movie, movie(Movie, YearNumber), MovieList),
+        movie_list_to_detail_list(MovieList, MovieDetailList).
+
+filter_by_genre(Genre, _{list:MovieDetailList}) :-
+        json:to_atom(Genre, GenreAtom),
+        findall(Movie, genre(Movie, GenreAtom), MovieList),        
+        movie_list_to_detail_list(MovieList, MovieDetailList).
+
+sort_by_year(MovieListDetail) :-
+        findall(Year-Movie, movie(Movie, Year), MovieYears),
+        keysort(MovieYears, Sorted),
+        pairs_values(Sorted, MovieList),
+        movie_list_to_detail_list(MovieList, MovieListDetail).
+
+list_genres(List) :-
+        setof(Genre, Movie^genre(Movie,Genre),List).
+
+% To add Username and Password to use in basic authentication
+
+add_uname_pw(Uname, PW) :-
+	http_read_passwd_file(passwd, Users),
+	crypt(PW, Hash),
+	atom_codes(AHash, Hash),
+	http_write_passwd_file(passwd, [passwd(Uname, AHash, []) | Users]).
+
+% start the passwd file with user adminuser password adminpw
+start_pw_file :-
+	crypt(admin, Hash),
+	atom_codes(AHash, Hash),
+	http_write_passwd_file(passwd, [passwd(admin, AHash, [])]).
 
 % Change list to dict of list
 list_to_dict_list([],[],_).
