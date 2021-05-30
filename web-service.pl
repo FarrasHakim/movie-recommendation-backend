@@ -8,36 +8,34 @@
 :- use_module(library(http/http_parameters)).
 :- use_module(library(http/http_authenticate)).
 :- use_module(library(http/http_digest)).
+:- use_module(library(http/http_cors)).
 :- [database].
 :- [utils].
 :- [controller/movieFilterByName].
 :- [controller/movieSortByName].
 
+:- set_setting(http:cors, [*]).
 http:location(files, '/f', []).
 http:location(food, '/food', []).
 
-% Declare a handler, binding an HTTP path to a predicate.
-% The notation root(hello_world) uses an alias-mechanism similar to
-% absolute_file_name/3 and allows for moving parts of the server locations
-% easily. See http_absolute_location/3.
 :- http_handler(root(.), say_hi, []).
 
 % And, just for clarity, define a second handler
 % this one can by reached at http://127.0.0.1:8000/taco
-:- http_handler('/movies', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/genres', request_handler_list_genres, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/genres/', request_handler_list_genres, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/detail', request_handler_movie_detail, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/detail/', request_handler_movie_detail, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/filter/year', request_handler_filter_by_year, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/filter/year/', request_handler_filter_by_year, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/filter/genre', request_handler_filter_by_genre, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/filter/genre/', request_handler_filter_by_genre, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/sort/year', request_handler_sort_movies_by_year, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/sort/year/', request_handler_sort_movies_by_year, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/sort/name', sort_movies_by_name, [authentication(basic(passwd, unguent_realm))]).
-:- http_handler('/movies/sort/name/', sort_movies_by_name, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler('/movies', request_handler_list_movies, []).
+:- http_handler('/movies/', request_handler_list_movies, []).
+:- http_handler('/movies/genres', request_handler_list_genres, []).
+:- http_handler('/movies/genres/', request_handler_list_genres, []).
+:- http_handler('/movies/detail', request_handler_movie_detail, []).
+:- http_handler('/movies/detail/', request_handler_movie_detail, []).
+:- http_handler('/movies/filter/year', request_handler_filter_by_year, []).
+:- http_handler('/movies/filter/year/', request_handler_filter_by_year, []).
+:- http_handler('/movies/filter/genre', request_handler_filter_by_genre, []).
+:- http_handler('/movies/filter/genre/', request_handler_filter_by_genre, []).
+:- http_handler('/movies/sort/year', request_handler_sort_movies_by_year, []).
+:- http_handler('/movies/sort/year/', request_handler_sort_movies_by_year, []).
+:- http_handler('/movies/sort/name', sort_movies_by_name, []).
+:- http_handler('/movies/sort/name/', sort_movies_by_name, []).
 % TODO// recommended movie
 % TODO// filter
 
@@ -46,13 +44,6 @@ http:location(food, '/food', []).
 % (re-)load code, debug, etc.
 server(Port) :-
         http_server(http_dispatch, [port(Port)]).
-/* The implementation of /hello_world. The single argument provides the request
-details, which we ignore for now. Our task is to write a CGI-Document:
-a number of name: value -pair lines, followed by two newlines, followed
-by the document content, The only obligatory header line is the
-Content-type: <mime-type> header.
-Printing can be done using any Prolog printing predicate, but the
-format-family is the most useful. See format/2.   */
 
 /*
 Http Handlers
@@ -63,16 +54,22 @@ say_hi(_Request) :-
         format('Hello There! Farras, Sayid, Supri were here.~n').
 
 request_handler_list_movies(Request) :-   
+        cors_enable(Request,
+                  [ methods([get, post, delete])]),
         format(user_output,"Request is: ~p~n",[Request]),
         list_movies(DictOut),
         reply_json_dict(_{list:DictOut}).
 
 request_handler_list_genres(Request) :-        
+        cors_enable(Request,
+                  [ methods([get, post, delete])]),
         format(user_output,"Request is: ~p~n",[Request]),
         list_genres(DictOut),
         reply_json_dict(_{list:DictOut}).
 
 request_handler_filter_by_year(Request) :- 
+        cors_enable(Request,
+                  [ methods([get, post, delete])]),
         http_parameters(Request, [year(Year, [])]),
    format(user_output,"Request is: ~p~n",[Request]),
    format(user_output,"Query is: ~p~n",[Year]),
@@ -81,12 +78,16 @@ request_handler_filter_by_year(Request) :-
         reply_json(_{list:DictOut}).
 
 request_handler_filter_by_genre(Request) :-
+        cors_enable(Request,
+                  [ methods([get, post, delete])]),
         http_parameters(Request, [genre(Genre, [])]),
         format(user_output,"Query is: ~p~n",[Genre]),
         filter_by_genre(Genre, DictOut),
         reply_json(DictOut).
 
 request_handler_sort_movies_by_year(Request) :-
+        cors_enable(Request,
+                  [ methods([get, post, delete])]),
         format(user_output,"Request is: ~p~n",[Request]),
         sort_by_year(DictOut),
         reply_json_dict(_{list:DictOut}).
