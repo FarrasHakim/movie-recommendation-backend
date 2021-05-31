@@ -48,6 +48,7 @@
 :- http_handler('/movies/sort/rating/asc', sort_movies_by_rating_asc, []).
 :- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, []).
 :- http_handler('/movies/add_rating', request_handler_add_rating, []).
+:- http_handler('/movies/add_rating/', request_handler_add_rating, []).
 
 homes(_Request) :-
         format('Content-type: text/plain~n~n'),
