@@ -9,13 +9,17 @@
 :- use_module(library(http/http_authenticate)).
 :- use_module(library(http/http_digest)).
 :- use_module(library(http/http_cors)).
+:- use_module(library(http/http_files)).
+:- use_module(library(http/http_server_files)).
+:- set_setting(http:cors, ['*']).
+
 
 :- [database].
 :- [utils].
 
 :- [controller/movieListMovies].
 :- [controller/movieListGenre].
-:- [controller/movieFilterByName].
+:- [controller/movieGetByName].
 :- [controller/movieFilterByGenre].
 :- [controller/movieFilterByYear].
 :- [controller/movieSortByName].
@@ -23,12 +27,8 @@
 :- [controller/movieSortByYear].
 :- [controller/movieRecommendation].
 
-:- set_setting(http:cors, ['*']).
 
-:- http_handler(root(.), say_hi, []).
-
-%:- http_handler('/movies', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
-%:- http_handler('/movies/', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
+:- http_handler(root(.), homes, [prefix]).
 :- http_handler('/movies', request_handler_list_movies, []).
 :- http_handler('/movies/', request_handler_list_movies, []).
 :- http_handler('/movies/recommended', request_handler_movie_recommendation, []).
@@ -48,9 +48,14 @@
 :- http_handler('/movies/sort/rating/asc', sort_movies_by_rating_asc, []).
 :- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, []).
 
+http:location(public, root(public), []).
+user:file_search_path(homes, library('templates')).
+
+homes(Request) :-
+        http_reply_from_files('./templates', [], Request).
+
+homes(_Request) :-
+        serve_files_in_directory(homes).
+
 server(Port) :-
         http_server(http_dispatch, [port(Port)]).
-
-say_hi(_Request) :-
-        format('Content-type: text/plain~n~n'),
-        format('Hello There! Farras, Sayid, Supri were here.~n').
