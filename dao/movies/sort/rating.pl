@@ -1,4 +1,5 @@
 sortMoviesByRatingAsc(List) :-
+    addAverageRating,
     findall(Rating-Movie, rating(Movie, Rating), MovieRatings),
     keysort(MovieRatings, Sorted),
     pairs_values(Sorted, MovieList),

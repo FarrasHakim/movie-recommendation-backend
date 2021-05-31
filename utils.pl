@@ -106,9 +106,18 @@ movie_list_to_detail_list([Movie|MovieList], ListDict) :-
                 Temp, 
                 ListDict).
 
+addAverageRating:-
+        findall(Movie, movie(Movie, _), MovieList),
+        addAverageRating(MovieList).
 
-rating(Movie, RatingAverage) :-
-        findall(Rating, rating(_, Movie, Rating), ListRating),
+addAverageRating([]).
+addAverageRating([Head|Tail]):-
+        average_rating(Head,Rating),
+        assert(rating(Head, Rating)),
+        addAverageRating(Tail).
+
+average_rating(Movie, RatingAverage) :-
+        findall(Rating, user_rating(_, Movie, Rating), ListRating),
         average(ListRating, RatingAverage).
 
 truncate(X,N,Result):- X >= 0, Result is floor(10^N*X)/10^N, !.
