@@ -125,3 +125,11 @@ list_sum([Item], Item).
 list_sum([Item1,Item2 | Tail], Total) :-
         Sum is Item1 + Item2,
         list_sum([Sum|Tail], Total).
+
+add_rating(User, Movie, Rate) :-
+    retract(rating(User, Movie, _)),
+    !,
+    assert(rating(User, Movie, Rate)).
+
+add_rating(User, Movie, Rate) :-
+    assert(rating(User, Movie, Rate)).
