@@ -26,7 +26,7 @@
 :- [controller/movieSortByRating].
 :- [controller/movieSortByYear].
 :- [controller/movieRecommendation].
-
+:- [controller/movieAddRating].
 
 :- http_handler(root(.), homes, []).
 :- http_handler('/movies', request_handler_list_movies, []).
@@ -47,6 +47,7 @@
 :- http_handler('/movies/sort/name/asc/', sort_movies_by_name, []).
 :- http_handler('/movies/sort/rating/asc', sort_movies_by_rating_asc, []).
 :- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, []).
+:- http_handler('/movies/add_rating', request_handler_add_rating, []).
 
 homes(_Request) :-
         format('Content-type: text/plain~n~n'),
