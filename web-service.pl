@@ -19,7 +19,7 @@
 
 :- [controller/movieListMovies].
 :- [controller/movieListGenre].
-:- [controller/movieFilterByName].
+:- [controller/movieGetByName].
 :- [controller/movieFilterByGenre].
 :- [controller/movieFilterByYear].
 :- [controller/movieSortByName].

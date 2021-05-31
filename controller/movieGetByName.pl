@@ -1,4 +1,4 @@
-:- [dao/movies/filter/name].
+:- [dao/movies/get/name].
 
 request_handler_movie_detail(Request) :- 
     cors_enable,
