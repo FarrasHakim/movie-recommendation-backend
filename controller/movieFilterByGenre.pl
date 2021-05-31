@@ -1,6 +1,5 @@
 request_handler_filter_by_genre(Request) :-
-        cors_enable(Request,
-                  [ methods([get, post, delete])]),
+        cors_enable,
         http_parameters(Request, [genre(Genre, [])]),
         format(user_output,"Query is: ~p~n",[Genre]),
         filter_by_genre(Genre, DictOut),
