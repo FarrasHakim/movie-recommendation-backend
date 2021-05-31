@@ -9,34 +9,6 @@ matchStringFromList([X|_], Subname, X) :-
 matchStringFromList([_|Xt], Subname, X) :-
         matchStringFromList(Xt, Subname, X).
 
-% Get list of movie names
-list_movies(MovieDetailList) :-
-        findall(Movie, movie(Movie, _), MovieList),
-        movie_list_to_detail_list(MovieList, MovieDetailList).
-        
-% Get list of actors and actress
-list_actors(Movie, List) :-
-        findall(Actor, actor(Movie, Actor, _);actress(Movie, Actor, _), List).
-
-filter_by_year(Year, MovieDetailList) :- 
-        atom_number(Year, YearNumber),
-        findall(Movie, movie(Movie, YearNumber), MovieList),
-        movie_list_to_detail_list(MovieList, MovieDetailList).
-
-filter_by_genre(Genre, _{list:MovieDetailList}) :-
-        json:to_atom(Genre, GenreAtom),
-        findall(Movie, genre(Movie, GenreAtom), MovieList),        
-        movie_list_to_detail_list(MovieList, MovieDetailList).
-
-sort_by_year(MovieListDetail) :-
-        findall(Year-Movie, movie(Movie, Year), MovieYears),
-        keysort(MovieYears, Sorted),
-        pairs_values(Sorted, MovieList),
-        movie_list_to_detail_list(MovieList, MovieListDetail).
-
-list_genres(List) :-
-        setof(Genre, Movie^genre(Movie,Genre),List).
-
 % To add Username and Password to use in basic authentication
 
 add_uname_pw(Uname, PW) :-

@@ -41,10 +41,10 @@
 :- http_handler('/movies/filter/year/', request_handler_filter_by_year, []).
 :- http_handler('/movies/filter/genre', request_handler_filter_by_genre, []).
 :- http_handler('/movies/filter/genre/', request_handler_filter_by_genre, []).
-:- http_handler('/movies/sort/year', request_handler_sort_movies_by_year, []).
-:- http_handler('/movies/sort/year/', request_handler_sort_movies_by_year, []).
-:- http_handler('/movies/sort/name', sort_movies_by_name, []).
-:- http_handler('/movies/sort/name/', sort_movies_by_name, []).
+:- http_handler('/movies/sort/year/asc', request_handler_sort_movies_by_year, []).
+:- http_handler('/movies/sort/year/asc/', request_handler_sort_movies_by_year, []).
+:- http_handler('/movies/sort/name/asc', sort_movies_by_name, []).
+:- http_handler('/movies/sort/name/asc/', sort_movies_by_name, []).
 :- http_handler('/movies/sort/rating/asc', sort_movies_by_rating_asc, []).
 :- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, []).
 
