@@ -1,3 +1,5 @@
+:- [dao/movies/get/list].
+
 request_handler_list_movies(Request) :-   
         cors_enable,
         format(user_output,"Request is: ~p~n",[Request]),

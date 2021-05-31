@@ -1,4 +1,5 @@
 :- [utils].
+:- [dao/actors/get/list].
 
 % Get movie by name
 movie_detail(Name, _{movie: MovieName, year:OutputYear, actors: ActorsList, genres: ListGenre, poster: Poster, desc: Description}) :-

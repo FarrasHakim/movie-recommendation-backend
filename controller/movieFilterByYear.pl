@@ -1,3 +1,5 @@
+:- [dao/movies/filter/year].
+
 request_handler_filter_by_year(Request) :- 
         cors_enable,
         http_parameters(Request, [year(Year, [])]),

@@ -1,3 +1,5 @@
+:- [dao/movies/filter/genre].
+
 request_handler_filter_by_genre(Request) :-
         cors_enable,
         http_parameters(Request, [genre(Genre, [])]),

@@ -1,3 +1,5 @@
+:- [dao/movies/sort/year].
+
 request_handler_sort_movies_by_year(Request) :-
         cors_enable,
         format(user_output,"Request is: ~p~n",[Request]),
