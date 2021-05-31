@@ -17,7 +17,8 @@ getMoviesByGenres([], []).
 getMoviesByGenres([Genre|GenreTail], Movies):-
     getMoviesByGenres(GenreTail, TailMovies),
     filter_by_genre_list(Genre, GenreMovies),
-    append(GenreMovies, TailMovies, Movies).
+    subtract(GenreMovies, TailMovies, ReducedGenreMovies),
+    append(ReducedGenreMovies, TailMovies, Movies).
 
 sort_movies_by_rating(Movies, ByRating) :-
         pair_rating_movies(Movies,Pairs),
