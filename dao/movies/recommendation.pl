@@ -1,5 +1,3 @@
-:- use_module(library(ordsets)).
-
 :- [filter/director].
 :- [filter/genre].
 :- [sort/rating].
@@ -9,11 +7,10 @@ filterMoviesRecommendationByMovie(Movie, MovieList):-
     findall(Genre, genre(Movie, Genre), GenreList),        
     getMoviesByGenres(GenreList, MoviesByGenres),
     sort_movies_by_rating(MoviesByGenres, GenreByRating),
-    movie_list_to_detail_list(GenreByRating, GenreByRatingDetail),
     filterMoviesByDirector(Director, MoviesByDirector),
     sort_movies_by_rating(MoviesByDirector, DirectorByRating),
-    movie_list_to_detail_list(DirectorByRating, DirectorByRatingDetail),
-    ord_union(GenreByRatingDetail, DirectorByRatingDetail, ReversedMovieList),
+    subtract(GenreByRating, DirectorByRating, ReducedGenreByRating),
+    append(ReducedGenreByRating, DirectorByRating, ReversedMovieList),
     reverse(ReversedMovieList, MovieList).
 
 getMoviesByGenres([], []).
