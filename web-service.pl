@@ -23,9 +23,12 @@
 :- [controller/movieSortByYear].
 :- [controller/movieRecommendation].
 
-:- set_setting(http:cors, ['http://localhost:8080']).
+:- set_setting(http:cors, ['*']).
 
 :- http_handler(root(.), say_hi, []).
+
+%:- http_handler('/movies', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
+%:- http_handler('/movies/', request_handler_list_movies, [authentication(basic(passwd, unguent_realm))]).
 :- http_handler('/movies', request_handler_list_movies, []).
 :- http_handler('/movies/', request_handler_list_movies, []).
 :- http_handler('/movies/recommended', request_handler_movie_recommendation, []).
