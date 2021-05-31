@@ -1,4 +1,4 @@
-:- [dao/movies/filter/rating].
+:- [dao/movies/recommendation].
 
 request_handler_movie_recommendation(Request) :-
     cors_enable,

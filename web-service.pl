@@ -28,7 +28,7 @@
 :- [controller/movieRecommendation].
 
 
-:- http_handler(root(.), homes, [prefix]).
+:- http_handler(root(.), homes, []).
 :- http_handler('/movies', request_handler_list_movies, []).
 :- http_handler('/movies/', request_handler_list_movies, []).
 :- http_handler('/movies/recommended', request_handler_movie_recommendation, []).
@@ -48,14 +48,9 @@
 :- http_handler('/movies/sort/rating/asc', sort_movies_by_rating_asc, []).
 :- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, []).
 
-http:location(public, root(public), []).
-user:file_search_path(homes, library('templates')).
-
-homes(Request) :-
-        http_reply_from_files('./templates', [], Request).
-
 homes(_Request) :-
-        serve_files_in_directory(homes).
+        format('Content-type: text/plain~n~n'),
+        format('Hello There! Farras, Sayid, Supri were here.~n').
 
 server(Port) :-
         http_server(http_dispatch, [port(Port)]).
