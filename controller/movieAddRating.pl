@@ -7,8 +7,7 @@ request_handler_add_rating(Request) :-
                         [ methods([post])
                         ]),
         format(user_output,"ReqHeader is: ~p~n",[ReqHeaders]),
-        list_movies(DictOut),
-        reply_json_dict(_{list:DictOut}).
+        reply_json_dict(_{message:"Options"}).
 
 request_handler_add_rating(Request) :-
     format(user_output,"Request is: ~p~n",[Request]),
@@ -25,7 +24,7 @@ request_handler_add_rating(Request) :-
     Data = _{user:User, movie:Movie, rating:Rating},
     json:to_atom(User, UserAtom),
     json:to_atom(Movie, MovieAtom),
-    atom_number(Rating, RatingAtom),
-    add_rating(UserAtom, MovieAtom, RatingAtom),
+    % atom_number(Rating, RatingAtom),
+    add_rating(UserAtom, MovieAtom, Rating),
     reply_json_dict(_{message:"Success"}).
     
