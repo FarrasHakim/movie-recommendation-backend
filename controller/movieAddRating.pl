@@ -24,7 +24,9 @@ request_handler_add_rating(Request) :-
     Data = _{user:User, movie:Movie, rating:Rating},
     json:to_atom(User, UserAtom),
     json:to_atom(Movie, MovieAtom),
-    % atom_number(Rating, RatingAtom),
-    add_rating(UserAtom, MovieAtom, Rating),
+    to_number(Rating, RatingAtom),
+    add_rating(UserAtom, MovieAtom, RatingAtom),
     reply_json_dict(_{code:200,message:"Success"}).
     
+to_number(Rating, RatingAtom) :- string(Rating), atom_number(Rating, RatingAtom), !.
+to_number(Rating, RatingAtom) :- RatingAtom = Rating.
