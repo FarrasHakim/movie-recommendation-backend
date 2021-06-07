@@ -3,12 +3,10 @@
 
 request_handler_movie_recommendation(Request) :-
     option(method(options), Request), !,
-    ReqHeaders = [authorization],
     cors_enable(Request,
                     [ methods([get])
     ]),
     format(user_output,"Request is: ~p~n",[Request]),
-    format(user_output,"ReqHeader is: ~p~n",[ReqHeaders]),
     reply_json_dict(_{message:"Options"}).
 
 request_handler_movie_recommendation(Request) :-
@@ -21,7 +19,6 @@ request_handler_movie_recommendation(Request) :-
     cors_enable(Request,
                     [ methods([get])
     ]),
-    %format(user_output,"Request is: ~p~n",[Request]),
     filterMoviesRecommendationByMovie(Movie, MovieList),
     movie_list_to_detail_list(MovieList,MovieListDetail),
     reply_json_dict(_{list:MovieListDetail}).

@@ -2,12 +2,10 @@
 
 request_handler_add_rating(Request) :-
     option(method(options), Request), !,
-        ReqHeaders = [authorization, content_type],
-        cors_enable(Request,
-                        [ methods([post])
-                        ]),
-        format(user_output,"ReqHeader is: ~p~n",[ReqHeaders]),
-        reply_json_dict(_{message:"Options"}).
+    cors_enable(Request,
+                    [ methods([post])
+                    ]),
+    reply_json_dict(_{message:"Options"}).
 
 request_handler_add_rating(Request) :-
     format(user_output,"Request is: ~p~n",[Request]),
@@ -19,7 +17,6 @@ request_handler_add_rating(Request) :-
     cors_enable(Request,
                         [ methods([post])
                         ]),
-    format(user_output,"Request is: ~p~n",[Request]),
     format(user_output,"Data is: ~p~n",[Data]),
     Data = _{user:User, movie:Movie, rating:Rating},
     json:to_atom(User, UserAtom),
