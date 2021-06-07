@@ -26,5 +26,5 @@ request_handler_add_rating(Request) :-
     json:to_atom(Movie, MovieAtom),
     % atom_number(Rating, RatingAtom),
     add_rating(UserAtom, MovieAtom, Rating),
-    reply_json_dict(_{message:"Success"}).
+    reply_json_dict(_{code:200,message:"Success"}).
     

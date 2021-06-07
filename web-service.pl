@@ -50,6 +50,8 @@
 :- http_handler('/movies/sort/rating/asc/', sort_movies_by_rating_asc, []).
 :- http_handler('/movies/add_rating', request_handler_add_rating, []).
 :- http_handler('/movies/add_rating/', request_handler_add_rating, []).
+:- http_handler('/users/register', request_handler_register_user, []).
+:- http_handler('/users/register/', request_handler_register_user, []).
 
 homes(_Request) :-
         format('Content-type: text/plain~n~n'),
@@ -58,3 +60,21 @@ homes(_Request) :-
 server(Port) :-
         addAverageRating,
         http_server(http_dispatch, [port(Port)]).
+
+request_handler_register_user(Request) :-
+        option(method(options), Request), !,
+        cors_enable(Request,
+                        [ methods([post])
+                        ]),
+        reply_json_dict(_{message:"Options"}).
+        
+request_handler_register_user(Request) :-
+        http_read_json_dict(Request, Data),
+        cors_enable(Request,
+                [ methods([post])
+        ]),
+        Data = _{username:Username, password:Password},
+        add_uname_pw(Username, Password),
+        reply_json_dict(_{code:200,message:"Success"}).
+
+:- multifile http:status_page/3.

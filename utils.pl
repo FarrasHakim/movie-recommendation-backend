@@ -10,7 +10,6 @@ matchStringFromList([_|Xt], Subname, X) :-
         matchStringFromList(Xt, Subname, X).
 
 % To add Username and Password to use in basic authentication
-
 add_uname_pw(Uname, PW) :-
 	http_read_passwd_file(passwd, Users),
 	crypt(PW, Hash),
