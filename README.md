@@ -7,10 +7,11 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
 1. Clone proyek
 2. Pastikan swi-prolog sudah terinstall
 3. Buka cmd/terminal di folder 'movie-recommendaiton-backend'
-4. Jalankan `swipl -g "server(8000)" web-service.pl`
+4. Jalankan `swipl -g "server(3001)" web-service.pl`
 5. Website dapat diakses melalui browser dengan alamat url `localhost:<port>`
 
 #### Authentication
+
 - API ini menggunakan basic auth
 - Salah satu akun authnya adalah Username:admin, Password:admin
 - Contoh penggunaan basic auth: `curl -u admin:admin http://localhost:3001/movies`
@@ -37,6 +38,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
        ]
    }
    ```
+
 2. Get All Recommended Movies
 
    Endpoint-URL: `GET /movies/recommended?movie=anna`\
@@ -90,6 +92,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
         ]
     }
    ```
+
 3. Get All Movie Genres
 
    Endpoint-URL: `GET /movies/genres`\
@@ -316,7 +319,7 @@ Proyek ini dibuat menggunakan SWI-Prolog dalam rangka memenuhi tugas akhir mata 
 9. Add Rating
 
    Endpoint-URL: `POST /movies/add_rating`\
-   Input: 
+   Input:
 
    ```
    {
