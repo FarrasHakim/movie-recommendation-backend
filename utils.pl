@@ -21,48 +21,7 @@ start_pw_file :-
 	crypt(admin, Hash),
 	atom_codes(AHash, Hash),
 	http_write_passwd_file(passwd, [passwd(admin, AHash, [])]).
-
-% Change list to dict of list
-list_to_dict_list([],[],_).
-list_to_dict_list([Year],[Movie],ListDict) :-
-        % list_actors(Movie, ActorsList),
-        findall(Genre, genre(Movie, Genre), GenresList),
-        findall(Director, director(Movie, Director), [Director|_]),
-        findall(Desc,description(Movie,Desc),[Desc|_]),
-        findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
-        findall(Rating, rating(Movie, Rating), [Rating|_]),
-        ListDict = [_{
-                year:Year, 
-                movie:Movie, 
-                % actors: ActorsList, 
-                director: Director, 
-                genres: GenresList,
-                desc: Desc,
-                poster: PosterUrl,
-                rating: Rating
-                }].
-
-list_to_dict_list([Year|YearList], [Movie|MovieList], ListDict) :-
-        list_to_dict_list(YearList, MovieList, Temp),
-        % list_actors(Movie, ActorsList),
-        findall(Genre, genre(Movie, Genre), GenresList),
-        findall(Director, director(Movie, Director), [Director|_]),
-        findall(Desc,description(Movie,Desc),[Desc|_]),
-        findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
-        findall(Rating, rating(Movie, Rating), [Rating|_]),
-        append([_{
-                year:Year, 
-                movie:Movie, 
-                % actors: ActorsList, 
-                director: Director, 
-                genres: GenresList,
-                desc: Desc,
-                poster: PosterUrl,
-                rating: Rating
-                }], 
-                Temp, 
-                ListDict).
-
+        
 % Change movie list to list of movies with details
 movie_list_to_detail_list([], _).
 movie_list_to_detail_list([Movie], ListDict) :-

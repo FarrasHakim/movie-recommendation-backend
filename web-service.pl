@@ -76,5 +76,3 @@ request_handler_register_user(Request) :-
         Data = _{username:Username, password:Password},
         add_uname_pw(Username, Password),
         reply_json_dict(_{code:200,message:"Success"}).
-
-:- multifile http:status_page/3.
