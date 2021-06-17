@@ -168,8 +168,6 @@ user_rating(user2, the_spongebob_squarepants_movie, 4.0).
 user_rating(user1, untitled_woody_allen_fall_project_2006, 2.0).
 user_rating(user3, untitled_woody_allen_fall_project_2006, 2.0).
 user_rating(user2, untitled_woody_allen_fall_project_2006, 3.0).
-user_rating(user1, jojo_rabbit, 4.0).
-user_rating(user3, jojo_rabbit, 5.0).
 user_rating(user2, jojo_rabbit, 5.0).
 
 movie(american_beauty, 1999).

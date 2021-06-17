@@ -28,5 +28,5 @@ sort_movies_by_rating(Movies, ByRating) :-
 pair_rating_movies([], []).
 pair_rating_movies([Movie|MovieTail], Pairs) :-
     pair_rating_movies(MovieTail, TailPairs),
-    rating(Movie, MovieRating),
+    average_rating(Movie, MovieRating),
     append(TailPairs, [MovieRating-Movie], Pairs).

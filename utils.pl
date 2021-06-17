@@ -31,7 +31,7 @@ movie_list_to_detail_list([Movie], ListDict) :-
         findall(Year,movie(Movie,Year),[Year|_]),
         findall(Desc,description(Movie,Desc),[Desc|_]),
         findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
-        findall(Rating, rating(Movie, Rating), [Rating|_]),
+        average_rating(Movie, Rating),
         ListDict = [_{
                 year:Year, 
                 movie:Movie, 
@@ -50,7 +50,7 @@ movie_list_to_detail_list([Movie|MovieList], ListDict) :-
         findall(Year,movie(Movie,Year),[Year|_]),
         findall(Desc,description(Movie,Desc),[Desc|_]),
         findall(PosterUrl,poster(Movie,PosterUrl),[PosterUrl|_]),
-        findall(Rating, rating(Movie, Rating), [Rating|_]),
+        average_rating(Movie, Rating),
         append([_{
                 year:Year, 
                 movie:Movie, 
@@ -63,16 +63,6 @@ movie_list_to_detail_list([Movie|MovieList], ListDict) :-
                 }], 
                 Temp, 
                 ListDict).
-
-addAverageRating:-
-        findall(Movie, movie(Movie, _), MovieList),
-        addAverageRating(MovieList).
-
-addAverageRating([]).
-addAverageRating([Head|Tail]):-
-        average_rating(Head,Rating),
-        assert(rating(Head, Rating)),
-        addAverageRating(Tail).
 
 average_rating(Movie, RatingAverage) :-
         findall(Rating, user_rating(_, Movie, Rating), ListRating),

@@ -7,7 +7,7 @@ movie_detail(Name, _{movie: MovieName, year:OutputYear, actors: ActorsList, genr
     getMovieName(NameAtom, MovieName),
     format(user_output,"MovieName is: ~p~n",[MovieName]),
     list_actors(MovieName, List),
-    rating(MovieName, AverageRating),
+    average_rating(MovieName, AverageRating),
     bagof(Year, movie(MovieName, Year), [OutputYear| _]),
     bagof(Genre, genre(MovieName, Genre), ListGenre),
     bagof(Poster, poster(MovieName, Poster), [Poster|_]),

@@ -58,7 +58,6 @@ homes(_Request) :-
         format('Hello There! Farras, Sayid, Supri were here.~n').
 
 server(Port) :-
-        addAverageRating,
         http_server(http_dispatch, [port(Port)]).
 
 request_handler_register_user(Request) :-
